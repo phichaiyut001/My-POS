@@ -14,9 +14,7 @@ const Login = () => {
         type: "SHOW_LOADING",
       });
       const res = await axios.post("/api/users/login", value);
-      message.success("User Logged In Succesfully");
-      // Storing the user details in localStorage -> we can use sessions and cookies otherwise
-
+      message.success("User Logged In Successfully");
       localStorage.setItem("auth", JSON.stringify(res.data));
       navigate("/");
       dispatch({ type: "HIDE_LOADING" });
@@ -26,7 +24,7 @@ const Login = () => {
       console.log(error);
     }
   };
-  //currently login user
+
   useEffect(() => {
     if (localStorage.getItem("auth")) {
       localStorage.getItem("auth");
@@ -35,10 +33,15 @@ const Login = () => {
   }, [navigate]);
 
   return (
-    <>
-      <div className="register ">
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img
+        src={process.env.PUBLIC_URL + '/images/image_1704883942309.jpg'}
+        alt="Login Image"
+        style={{ width: '600px', height: '600px', marginRight: '20px' }}
+      />
+      <div className="register">
         <div className="register-from">
-          <h1>POS App</h1>
+          <h1>ระบบ POS ร้านข้าวปลาทอด </h1>
           <h3>Login Page</h3>
           <Form layout="vertical" onFinish={handleSubmit}>
             <Form.Item
@@ -67,7 +70,7 @@ const Login = () => {
           </Form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

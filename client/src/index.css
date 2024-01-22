@@ -2,16 +2,17 @@
 
 body {
   font-family: "Sora", sans-serif;
+  
 }
 
 .item-button button {
   margin-top: 20px;
   width: 200px;
   background-color: rgb(34, 78, 9);
-  color: white;
+  color: #fff;
 }
 .item-button button:hover {
-  background-color: white;
+  background-color: rgb(0, 0, 0);
 }
 
 .spinner {
@@ -61,8 +62,9 @@ body {
 }
 
 .register-from {
+  margin-left: 50%;
   border-radius: 5%;
-  background-color: rgba(145, 176, 243, 0.463);
+  background-color: #fff;
   padding: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -70,13 +72,16 @@ body {
 
 .register-from h1 {
   text-align: center;
-  background-color: rgb(80, 139, 248);
-  color: white;
+  font-weight: bold;
+  background-color: #eee8e8;
+  color: rgb(38, 36, 36);
   border-radius: 5px;
   padding: 10px;
 }
 
 .register-from h3 {
+  font-weight: bold;
   text-align: center;
-  color: rgb(80, 139, 248);
+  color: #010101 ;
 }
+

@@ -109,15 +109,20 @@ const CartPage = () => {
             ...newObject,
             change: parseFloat(value.change),
           };
-
+          
           // คำนวณจำนวนเงินทอดคืน
           const changeAmount = parseFloat(value.change) - subTotal;
           setChangeAmount(changeAmount);
 
           await axios.post("/api/bills/add-bills", newObject);
+          dispatch({
+            type: "CLEAR_CART",
+          });
           message.success("Bill Generated");
 
           navigate("/bills");
+          
+    
         } else {
           // จำนวนเงินสดไม่เพียงพอ
           message.error("จำนวนเงินสดไม่เพียงพอ");
@@ -131,6 +136,9 @@ const CartPage = () => {
         };
 
         await axios.post("/api/bills/add-bills", newObject);
+        dispatch({
+          type: "CLEAR_CART",
+        });
         message.success("Bill Generated");
         navigate("/bills");
       }
@@ -149,7 +157,7 @@ const CartPage = () => {
         <h3>
           Subt Total : <b> {subTotal.toLocaleString()} </b> ฿{" "}
         </h3>
-        <Button type="primary" onClick={() => setBillPopup(true)}>
+        <Button type="primary" onClick={() => setBillPopup(true) }>
           Create Invoice
         </Button>
       </div>
@@ -160,13 +168,6 @@ const CartPage = () => {
         footer={false}
       >
         <Form layout="vertical" onFinish={handleSubmit}>
-          <Form.Item name="customerName" label="Customer Name">
-            <Input />
-          </Form.Item>
-
-          <Form.Item name="customerNumber" label="Customer Number">
-            <Input />
-          </Form.Item>
           <Form.Item name="paymentMode" label="Payment Method">
             <Select
               onChange={(value) => setIsCashPaymentMode(value === "cash")}

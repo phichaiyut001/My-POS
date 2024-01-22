@@ -35,6 +35,7 @@ const Register = () => {
 
   return (
     <>
+    
       <div className="register ">
         <div className="register-from">
           <h1>POS App</h1>

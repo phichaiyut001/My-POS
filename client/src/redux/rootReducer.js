@@ -22,6 +22,12 @@ export const rootReducer = (state = intialState, action) => {
         ...state,
         cartItems: [...state.cartItems, action.payload],
       };
+    case "CLEAR_CART":
+        return {
+          ...state,
+          cartItems: [],
+        };
+      
     case "UPDATE_CART":
       return {
         ...state,

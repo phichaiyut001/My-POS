@@ -50,9 +50,9 @@ const DefaultLayout = ({ children }) => {
           <Menu.Item key="/items" icon={<UnorderedListOutlined />}>
             <Link to="/items">Items</Link>
           </Menu.Item>
-          <Menu.Item key="/customers" icon={<UserOutlined />}>
+          {/* <Menu.Item key="/customers" icon={<UserOutlined />}>
             <Link to="/customers">Cutomers</Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item
             key="/logout"
             icon={<LogoutOutlined />}

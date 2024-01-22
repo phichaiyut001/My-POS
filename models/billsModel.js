@@ -2,14 +2,6 @@ const mongoose = require("mongoose");
 
 const billSchema = mongoose.Schema(
   {
-    customerName: {
-      type: String,
-      required: true,
-    },
-    customerNumber: {
-      type: Number,
-      required: true,
-    },
     subTotal: {
       type: Number,
       required: true,

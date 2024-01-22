@@ -41,11 +41,6 @@ const BillPage = () => {
   //able data
   const columns = [
     { title: "ID", dataIndex: "_id" },
-    {
-      title: "Customer Name",
-      dataIndex: "customerName",
-    },
-    { title: "Contact No", dataIndex: "customerNumber" },
     { title: "วิธีการจ่าย", dataIndex: "paymentMode" },
     { title: "ราคาทั้งหมด", dataIndex: "subTotal" },
     { title: "รับเงิน", dataIndex: "change" },
@@ -101,10 +96,6 @@ const BillPage = () => {
             <div id="mid">
               <div className="mt-">
                 <p>
-                  Custimer Name : <b>{selectedBill.customerName}</b>
-                  <br />
-                  Phone No : <b>{selectedBill.customerNumber}</b>
-                  <br />
                   Date : <b>{selectedBill.date.toString().substring(0, 10)}</b>
                   <br />
                 </p>
