@@ -74,12 +74,13 @@ const CartPage = () => {
       render: (id, record) => (
         <DeleteOutlined
           style={{ cursor: "pointer" }}
-          onClick={() =>
+          onClick={() => {
             dispatch({
               type: "DELETE_FORM_CART",
               payload: record,
-            })
-          }
+            });
+            message.warning("Item ถูกลบแล้ว!");
+          }}
         />
       ),
     },
@@ -109,7 +110,7 @@ const CartPage = () => {
             ...newObject,
             change: parseFloat(value.change),
           };
-          
+
           // คำนวณจำนวนเงินทอดคืน
           const changeAmount = parseFloat(value.change) - subTotal;
           setChangeAmount(changeAmount);
@@ -121,8 +122,6 @@ const CartPage = () => {
           message.success("Bill Generated");
 
           navigate("/bills");
-          
-    
         } else {
           // จำนวนเงินสดไม่เพียงพอ
           message.error("จำนวนเงินสดไม่เพียงพอ");
@@ -157,7 +156,7 @@ const CartPage = () => {
         <h3>
           Subt Total : <b> {subTotal.toLocaleString()} </b> ฿{" "}
         </h3>
-        <Button type="primary" onClick={() => setBillPopup(true) }>
+        <Button type="primary" onClick={() => setBillPopup(true)}>
           Create Invoice
         </Button>
       </div>

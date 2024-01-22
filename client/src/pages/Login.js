@@ -14,13 +14,15 @@ const Login = () => {
         type: "SHOW_LOADING",
       });
       const res = await axios.post("/api/users/login", value);
-      message.success("User Logged In Successfully");
+      message.success("เข้าสู่ระบบสำเร็จ ");
+      // Storing the user details in localStorage -> we can use sessions and cookies otherwise
+
       localStorage.setItem("auth", JSON.stringify(res.data));
       navigate("/");
       dispatch({ type: "HIDE_LOADING" });
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
-      message.error("Something Went Wrong");
+      message.error("UserId หรือ Password ไม่ถูกต้อง!");
       console.log(error);
     }
   };
@@ -33,11 +35,17 @@ const Login = () => {
   }, [navigate]);
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <img
-        src={process.env.PUBLIC_URL + '/images/Banner.jpg'}
+        src={process.env.PUBLIC_URL + "/images/Banner1.jpg"}
         alt="Login Image"
-        style={{ width: '600px', height: '600px', marginRight: '20px' }}
+        style={{ width: "800px", height: "600px", marginRight: "20px" }}
       />
       <div className="register">
         <div className="register-from">

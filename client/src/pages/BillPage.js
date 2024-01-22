@@ -39,12 +39,28 @@ const BillPage = () => {
     content: () => componentRef.current,
   });
   //able data
+
+  const formatDate = (inputDate) => {
+    const date = new Date(inputDate);
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  };
+
   const columns = [
     { title: "ID", dataIndex: "_id" },
     { title: "วิธีการจ่าย", dataIndex: "paymentMode" },
     { title: "ราคาทั้งหมด", dataIndex: "subTotal" },
     { title: "รับเงิน", dataIndex: "change" },
     { title: "เงินทอน", dataIndex: "changeAmount" },
+    {
+      title: "วันที่",
+      dataIndex: "date",
+      render: (date) => formatDate(date), // เรียกใช้ฟังก์ชัน formatDate
+    },
 
     {
       title: "Actions",

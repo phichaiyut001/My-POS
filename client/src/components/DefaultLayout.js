@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import {
   MenuUnfoldOutlined,
@@ -58,6 +58,7 @@ const DefaultLayout = ({ children }) => {
             icon={<LogoutOutlined />}
             onClick={() => {
               localStorage.removeItem("auth");
+              message.warning("ออกจากระบบสำเร็จ"); // แสดงข้อความ Warning
               navigate("/login");
             }}
           >

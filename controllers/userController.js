@@ -3,13 +3,14 @@ const userModel = require("../models/userModel");
 //login items
 const loginController = async (req, res) => {
   try {
-    const { userId, password } = req.body;
+    const { UserId, password } = req.body;
     // ใช้ findOne แทน find เพื่อหาข้อมูลผู้ใช้เพียงรายการเดียว
-    const user = await userModel.findOne({ userId });
+    const user = await userModel.findOne({ UserId });
 
     if (user && user.password === password) {
       // ถ้าพบผู้ใช้ที่มี userId ตรงกันและมีสถานะ verified เป็น true และ password ตรงกัน
       res.status(200).send(user);
+      console.log("User Found:", user);
     } else {
       // ถ้าไม่พบผู้ใช้หรือ userId หรือ password ไม่ตรงกัน หรือผู้ใช้ไม่มีสถานะ verified เป็น true
       res.status(401).json({

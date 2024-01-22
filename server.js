@@ -6,6 +6,7 @@ const dotanv = require("dotenv");
 const path = require("path");
 const multer = require("multer");
 const { bgCyan } = require("colors");
+const bcrypt = require("bcrypt");
 require("colors");
 const connectDb = require("./config/config");
 //dotenv config
