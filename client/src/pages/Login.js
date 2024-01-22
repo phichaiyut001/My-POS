@@ -35,7 +35,7 @@ const Login = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <img
-        src={process.env.PUBLIC_URL + '/images/image_1704883942309.jpg'}
+        src={process.env.PUBLIC_URL + '/images/Banner.jpg'}
         alt="Login Image"
         style={{ width: '600px', height: '600px', marginRight: '20px' }}
       />
