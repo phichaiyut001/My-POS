@@ -1,0 +1,156 @@
+[
+  {
+    "_id": {
+      "$oid": "65acf83c0d13b76a1ed4c323"
+    },
+    "name": "ปลาดุก 2 ตัว",
+    "price": 100,
+    "stock": 0,
+    "category": "fish",
+    "image": "image_1705842724025.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad05a5c88324e1a664c87d"
+    },
+    "name": "ปลานิทอด 6 ตัว",
+    "price": 100,
+    "stock": 0,
+    "category": "fish",
+    "image": "image_1705842306456.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad12235f8284069a1cf645"
+    },
+    "name": "โค้ก",
+    "price": 20,
+    "stock": 0,
+    "category": "drinks",
+    "image": "image_1705842333478.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad164400c49c1dc9f4569b"
+    },
+    "name": "ข้าวหอม",
+    "price": 10,
+    "stock": 0,
+    "category": "rice",
+    "image": "image_1705842244534.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad172a00c49c1dc9f456aa"
+    },
+    "name": "ข้าวปลานิลทอด",
+    "price": 50,
+    "stock": 0,
+    "category": "rice",
+    "image": "image_1705842474095.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad175600c49c1dc9f456ad"
+    },
+    "name": "ข้าวปลาดุกทอด",
+    "price": 60,
+    "stock": 0,
+    "category": "rice",
+    "image": "image_1705842518383.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad185f00c49c1dc9f456b6"
+    },
+    "name": "ปลาดุก 3 ตัว",
+    "price": 120,
+    "stock": 0,
+    "category": "fish",
+    "image": "image_1705842783398.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad1b34f78def8f998cc7a4"
+    },
+    "name": "นักเก็ตไก่",
+    "price": 50,
+    "stock": 0,
+    "category": "etc",
+    "image": "image_1705843508753.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad1b72f78def8f998cc7a9"
+    },
+    "name": "ชีสบอล",
+    "price": 50,
+    "stock": 0,
+    "category": "etc",
+    "image": "image_1705843570048.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad1be3f78def8f998cc7ae"
+    },
+    "name": "ไก่จ๊อ",
+    "price": 50,
+    "stock": 0,
+    "category": "etc",
+    "image": "image_1705843683098.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad1c54ac926ac0f59e7e14"
+    },
+    "name": "น้ำพริกแมงดา",
+    "price": 25,
+    "stock": 0,
+    "category": "chili",
+    "image": "image_1705843796443.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad1c5eac926ac0f59e7e17"
+    },
+    "name": "น้ำพริกตาแดง",
+    "price": 25,
+    "stock": 0,
+    "category": "chili",
+    "image": "image_1705843806954.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad1c70ac926ac0f59e7e1a"
+    },
+    "name": "น้ำพริกหมูผัด",
+    "price": 25,
+    "stock": 0,
+    "category": "chili",
+    "image": "image_1705843824476.jpg",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65ad21be43eb62c2d643f191"
+    },
+    "name": "ดุกกกกก",
+    "price": 20,
+    "stock": 0,
+    "category": "chili",
+    "image": "image_1705845182863.jpg",
+    "__v": 0
+  }
+]

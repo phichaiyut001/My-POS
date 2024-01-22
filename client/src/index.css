@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&family=Sora&display=swap");
+
+body {
+  font-family: "Sora", sans-serif;
+}
+
+.item-button button {
+  margin-top: 20px;
+  width: 200px;
+  background-color: rgb(34, 78, 9);
+  color: white;
+}
+.item-button button:hover {
+  background-color: white;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.spinner-border {
+  height: 100px;
+  width: 100px;
+}
+
+.category {
+  border: 2px solid gray;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.category img {
+  margin-left: 10px;
+}
+
+.category-active {
+  color: white;
+  transition: 1s;
+  border: 2px solid green;
+  background-color: gray;
+}
+
+/* ======================  Register page ======================================= */
+.register {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.register input {
+  width: 400px !important;
+}
+
+.register-from {
+  border-radius: 5%;
+  background-color: rgba(145, 176, 243, 0.463);
+  padding: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.register-from h1 {
+  text-align: center;
+  background-color: rgb(80, 139, 248);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.register-from h3 {
+  text-align: center;
+  color: rgb(80, 139, 248);
+}
