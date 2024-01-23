@@ -209,8 +209,8 @@ const ItemPage = () => {
                 <Select.Option value="drinks">Drinks</Select.Option>
                 <Select.Option value="rice">Rice</Select.Option>
                 <Select.Option value="fish">Fish</Select.Option>
-                <Select.Option value="etc">Fried</Select.Option>
-                <Select.Option value="chili">chili</Select.Option>
+                <Select.Option value="etc">Snack</Select.Option>
+                <Select.Option value="chili">Chilli</Select.Option>
               </Select>
             </Form.Item>
             <div className="d-flex justify-content-end">
