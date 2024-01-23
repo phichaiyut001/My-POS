@@ -45,7 +45,7 @@ const Login = () => {
       <img
         src={process.env.PUBLIC_URL + "/images/Banner1.jpg"}
         alt="Login Image"
-        style={{ width: "1000px", height: "600px", marginRight: "20px" }}
+        style={{ width: "900px", height: "600px", marginRight: "20px" }}
       />
       <div className="register">
         <div className="register-from">
