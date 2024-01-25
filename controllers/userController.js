@@ -56,7 +56,17 @@ const registerController = async (req, res) => {
   }
 };
 
+const getUsersController = async (req, res) => {
+  try {
+    const users = await userModel.find();
+    res.send(users);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   loginController,
   registerController,
+  getUsersController,
 };

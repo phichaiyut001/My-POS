@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import DefaultLayout from "../components/DefaultLayout";
+import LayoutAdmin from "./components/LayoutAdmin";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Table, Modal, Form, Input, Select, message } from "antd";
 
-const ItemPage = () => {
+const Items = () => {
   const [file, setFile] = useState(null);
   const [itemsData, setItemsData] = useState([]);
   const dispatch = useDispatch();
@@ -87,12 +87,12 @@ const ItemPage = () => {
               setPopupModal(true);
             }}
           />
-          {/* <DeleteOutlined
+          <DeleteOutlined
             style={{ cursor: "pointer" }}
             onClick={() => {
               handleDelete(record);
             }}
-          /> */}
+          />
         </div>
       ),
     },
@@ -139,90 +139,92 @@ const ItemPage = () => {
   };
 
   return (
-    <DefaultLayout>
-      <div className="d-flex justify-content-between">
-        <h1>Item List</h1>
-        {/* <Button type="primary" onClick={() => setPopupModal(true)}>
-          Add Item
-        </Button> */}
-      </div>
-      <Table columns={columns} dataSource={itemsData} bordered />
+    <LayoutAdmin>
+      <main className="main-container">
+        <div className="d-flex justify-content-between">
+          <h1>Inventory List</h1>
+          <Button type="primary" onClick={() => setPopupModal(true)}>
+            Add Item
+          </Button>
+        </div>
+        <Table columns={columns} dataSource={itemsData} bordered />
 
-      {popupModal && (
-        <Modal
-          title={`${editItem !== null ? "Edit Item " : "Add New Item"}`}
-          open={popupModal}
-          onCancel={() => {
-            setEditItem(null);
-            setPopupModal(false);
-          }}
-          footer={false}
-        >
-          <Form
-            layout="vertical"
-            initialValues={editItem}
-            onFinish={handleSubmit}
+        {popupModal && (
+          <Modal
+            title={`${editItem !== null ? "Edit Item " : "Add New Item"}`}
+            open={popupModal}
+            onCancel={() => {
+              setEditItem(null);
+              setPopupModal(false);
+            }}
+            footer={false}
           >
-            <Form.Item
-              name="name"
-              label="Name"
-              rules={[{ required: true, message: "กรุณากรอก ชื่อสินค้า" }]}
+            <Form
+              layout="vertical"
+              initialValues={editItem}
+              onFinish={handleSubmit}
             >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              name="price"
-              label="Price"
-              rules={[{ required: true, message: "กรุณากรอก ราคาสินค้า" }]}
-            >
-              <Input type="number" />
-            </Form.Item>
-            <Form.Item
-              name="stock"
-              label="stock"
-              rules={[{ required: true, message: "กรุณากรอก จำนวนสินค้า" }]}
-            >
-              <Input type="number" />
-            </Form.Item>
-            <Form.Item
-              name="image"
-              label="Image"
-              rules={[{ required: true, message: "กรุณาใส่รูปสินค้า" }]}
-            >
-              {editItem && editItem.image && (
-                <div>
-                  <img
-                    src={`/images/${editItem.image}`} // Assuming the 'image' field contains the URL of the existing image
-                    alt="Current Item Image"
-                    style={{ maxWidth: "100px", marginBottom: "10px" }}
-                  />
-                </div>
-              )}
-              <Input type="file" onChange={handleFileChange} />
-            </Form.Item>
-            <Form.Item
-              name="category"
-              label="Category"
-              rules={[{ required: true, message: "กรุณาเลือกประเภท สินค้า" }]}
-            >
-              <Select>
-                <Select.Option value="drinks">Drinks</Select.Option>
-                <Select.Option value="rice">Rice</Select.Option>
-                <Select.Option value="fish">Fish</Select.Option>
-                <Select.Option value="etc">Snack</Select.Option>
-                <Select.Option value="chili">Chilli</Select.Option>
-              </Select>
-            </Form.Item>
-            <div className="d-flex justify-content-end">
-              <Button type="primary" htmlType="submit">
-                SAVE
-              </Button>
-            </div>
-          </Form>
-        </Modal>
-      )}
-    </DefaultLayout>
+              <Form.Item
+                name="name"
+                label="Name"
+                rules={[{ required: true, message: "กรุณากรอก ชื่อสินค้า" }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="price"
+                label="Price"
+                rules={[{ required: true, message: "กรุณากรอก ราคาสินค้า" }]}
+              >
+                <Input type="number" />
+              </Form.Item>
+              <Form.Item
+                name="stock"
+                label="stock"
+                rules={[{ required: true, message: "กรุณากรอก จำนวนสินค้า" }]}
+              >
+                <Input type="number" />
+              </Form.Item>
+              <Form.Item
+                name="image"
+                label="Image"
+                rules={[{ required: true, message: "กรุณาใส่รูปสินค้า" }]}
+              >
+                {editItem && editItem.image && (
+                  <div>
+                    <img
+                      src={`/images/${editItem.image}`} // Assuming the 'image' field contains the URL of the existing image
+                      alt="Current Item Image"
+                      style={{ maxWidth: "100px", marginBottom: "10px" }}
+                    />
+                  </div>
+                )}
+                <Input type="file" onChange={handleFileChange} />
+              </Form.Item>
+              <Form.Item
+                name="category"
+                label="Category"
+                rules={[{ required: true, message: "กรุณาเลือกประเภท สินค้า" }]}
+              >
+                <Select>
+                  <Select.Option value="drinks">Drinks</Select.Option>
+                  <Select.Option value="rice">Rice</Select.Option>
+                  <Select.Option value="fish">Fish</Select.Option>
+                  <Select.Option value="etc">Snack</Select.Option>
+                  <Select.Option value="chili">Chilli</Select.Option>
+                </Select>
+              </Form.Item>
+              <div className="d-flex justify-content-end">
+                <Button type="primary" htmlType="submit">
+                  SAVE
+                </Button>
+              </div>
+            </Form>
+          </Modal>
+        )}
+      </main>
+    </LayoutAdmin>
   );
 };
 
-export default ItemPage;
+export default Items;

@@ -1,0 +1,78 @@
+/* Invoice.css */
+#invoice-POS {
+  box-shadow: 0 0 1in -0.25in rgb(0, 0, 0, 0.5);
+  padding: 4rem;
+  margin: 0 auto;
+  width: 86mm;
+  background: #fff;
+}
+
+::selection {
+  background: #f31544;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #f31544;
+  color: #fff;
+}
+h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+h2 {
+  font-size: 0.9em;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+p {
+  font-size: 0.7em;
+  color: #666;
+  line-height: 1.2em;
+}
+
+#top,
+#mid,
+#bot {
+  border-bottom: 1px solid #eee;
+}
+
+#top {
+  /* min-height: 100px; */
+}
+#bot {
+  /*  min-height: 50px; */
+}
+
+.info {
+  display: block;
+  margin-left: 0;
+}
+.title {
+  float: right;
+}
+.title p {
+  text-align: right;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabletitle {
+  font-size: 0.5em;
+  background: #eee;
+}
+
+.service {
+  border-bottom: 1px solid #eee;
+}
+.item {
+  width: 24mm;
+}
+.itemtext {
+  font-size: 0.5em;
+}
