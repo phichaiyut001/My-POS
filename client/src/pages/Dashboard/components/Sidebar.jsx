@@ -1,22 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { Layout, Menu, message } from "antd";
-import React, { useEffect, useState } from "react";
+import { message, Menu } from "antd";
+import React from "react";
 
 import {
   BsCart3,
   BsGrid1X2Fill,
   BsFillArchiveFill,
-  BsFillGrid3X3GapFill,
   BsPeopleFill,
   BsListCheck,
   BsMenuButtonWideFill,
-  BsFillGearFill,
 } from "react-icons/bs";
 import { IoIosLogOut } from "react-icons/io";
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   const navigate = useNavigate();
-
   return (
     <aside
       id="sidebar"
@@ -30,31 +26,59 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           X
         </span>
       </div>
-
-      <ul className="sidebar-list">
+      <Menu
+        theme={"dark"}
+        mode="inline"
+        defaultSelectedKeys={window.location.pathname}
+      >
+        <Menu.Item key="/Dashboard" icon={<BsGrid1X2Fill />}>
+          <Link to="/Dashboard">Dashboard</Link>
+        </Menu.Item>
+        <Menu.Item key="/inventory" icon={<BsListCheck />}>
+          <Link to="/inventory">Inventory</Link>
+        </Menu.Item>
+        <Menu.Item key="/Billsadmin" icon={<BsFillArchiveFill />}>
+          <Link to="/Billsadmin">Bills</Link>
+        </Menu.Item>
+        <Menu.Item key="/userlist" icon={<BsPeopleFill />}>
+          <Link to="/userlist">User</Link>
+        </Menu.Item>
+        <Menu.Item
+          key="/logout"
+          icon={<IoIosLogOut />}
+          onClick={() => {
+            localStorage.removeItem("auth");
+            message.warning("ออกจากระบบสำเร็จ"); // แสดงข้อความ Warning
+            navigate("/login");
+          }}
+        >
+          Logout
+        </Menu.Item>
+      </Menu>
+      {/* <ul className="sidebar-list">
         <li className="sidebar-list-item">
           <Link to="/dashboard">
             <BsGrid1X2Fill className="icon" /> Dashboard
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to="/products">
-            <BsFillArchiveFill className="icon" /> Products
+          <Link to="/inventory">
+            <BsListCheck className="icon" /> Inventory
           </Link>
         </li>
         <li className="sidebar-list-item">
+          <Link to="/Billsadmin">
+            <BsFillArchiveFill className="icon" /> Bills
+          </Link>
+        </li>
+        {/* <li className="sidebar-list-item">
           <Link to="/categories">
             <BsFillGrid3X3GapFill className="icon" /> Categories
           </Link>
-        </li>
+        </li> 
         <li className="sidebar-list-item">
-          <Link to="/customers">
-            <BsPeopleFill className="icon" /> Customers
-          </Link>
-        </li>
-        <li className="sidebar-list-item">
-          <Link to="/inventory">
-            <BsListCheck className="icon" /> Inventory
+          <Link to="/User">
+            <BsPeopleFill className="icon" /> User
           </Link>
         </li>
         <li className="sidebar-list-item">
@@ -73,7 +97,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <IoIosLogOut className="icon" /> Logout
           </Link>
         </li>
-      </ul>
+      </ul> */}
     </aside>
   );
 }

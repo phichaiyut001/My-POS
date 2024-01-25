@@ -58,7 +58,7 @@ body {
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #111a2c;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -103,6 +103,9 @@ body {
 }
 h1 {
   color: #ffff;
+}
+h3 {
+  color: #263043;
 }
 .sidebar-responsive {
   display: inline !important;

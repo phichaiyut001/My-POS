@@ -9,6 +9,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 import Dash from "./pages/Dashboard/Dash";
+import Items from "./pages/Dashboard/Items";
+import Bills from "./pages/Dashboard/Bills";
+import User from "./pages/Dashboard/User";
 function App() {
   return (
     <>
@@ -47,19 +50,35 @@ function App() {
             }
           />
           <Route
-            path="/user"
+            path="/dashboard"
             element={
-              <ProtectedRoute>
-                <UserPage />
-              </ProtectedRoute>
+              <ProtectedRouteAdmin>
+                <Dash />
+              </ProtectedRouteAdmin>
             }
           />
           <Route
-            path="/dashboard"
+            path="/inventory"
             element={
-              <ProtectedRoute>
-                <Dash />
-              </ProtectedRoute>
+              <ProtectedRouteAdmin>
+                <Items />
+              </ProtectedRouteAdmin>
+            }
+          />
+          <Route
+            path="/Billsadmin"
+            element={
+              <ProtectedRouteAdmin>
+                <Bills />
+              </ProtectedRouteAdmin>
+            }
+          />
+          <Route
+            path="/userlist"
+            element={
+              <ProtectedRouteAdmin>
+                <User />
+              </ProtectedRouteAdmin>
             }
           />
           <Route path="/login" element={<Login />} />
@@ -73,9 +92,28 @@ function App() {
 export default App;
 
 export function ProtectedRoute({ children }) {
-  if (localStorage.getItem("auth")) {
+  const authData = localStorage.getItem("auth");
+  if (authData) {
     return children;
   } else {
     return <Navigate to="/login" />;
   }
+}
+export function ProtectedRouteAdmin({ children }) {
+  const authData = localStorage.getItem("auth");
+
+  if (authData) {
+    const { roles } = JSON.parse(authData);
+
+    // เพิ่มเงื่อนไขที่ตรวจสอบว่า roles เป็น admin หรือไม่
+    if (roles && roles.includes("admin")) {
+      return children;
+    } else {
+      // หากไม่ใช่ admin, ให้ไปที่หน้าแรก
+      return <Navigate to="/" />;
+    }
+  }
+
+  // หากไม่มีข้อมูล auth, ให้ไปที่หน้า login
+  return <Navigate to="/login" />;
 }
