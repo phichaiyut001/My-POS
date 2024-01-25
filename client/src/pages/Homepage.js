@@ -12,27 +12,27 @@ const Homepage = () => {
     {
       name: "rice",
       fname: "ข้าว",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/1531/1531385.png",
+      imageUrl: "/images/Rice.png",
     },
     {
       name: "drinks",
       fname: "เครื่องดื่ม",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/878/878060.png",
+      imageUrl: "/images/Drink.png",
     },
     {
       name: "fish",
       fname: "ปลาทอด",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/3075/3075494.png",
+      imageUrl: "/images/Fish.png",
     },
     {
       name: "etc",
       fname: "ของทอด",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/3075/3075494.png",
+      imageUrl: "/images/snack.png",
     },
     {
       name: "chili",
       fname: "น้ำพริก",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/3075/3075494.png",
+      imageUrl: "/images/Chill.png",
     },
   ];
   const dispatch = useDispatch();
