@@ -5,7 +5,6 @@ import axios from "axios";
 import { EyeOutlined } from "@ant-design/icons";
 import { Table, Modal, Button } from "antd";
 import "../styles/Invoice.css";
-import ReactToPrint from "react-to-print";
 import { useReactToPrint } from "react-to-print";
 const BillPage = () => {
   const componentRef = useRef();
@@ -21,7 +20,12 @@ const BillPage = () => {
         type: "SHOW_LOADING",
       });
       const { data } = await axios.get("/api/bills/get-bills");
-      setBillsData(data);
+      const billsWithIndex = data.map((bill, index) => ({
+        ...bill,
+        index: index + 1,
+      }));
+
+      setBillsData(billsWithIndex);
       dispatch({ type: "HIDE_LOADING" });
       console.log(data);
     } catch (error) {
@@ -51,7 +55,24 @@ const BillPage = () => {
   };
 
   const columns = [
+    {
+      title: "No",
+      dataIndex: "index",
+      sorter: (a, b) => a.index - b.index,
+      width: 60,
+    },
     { title: "ID", dataIndex: "_id" },
+    {
+      title: "สินค้า",
+      dataIndex: "cartItems",
+      render: (cartItems) => (
+        <ul style={{ listStyle: "square" }}>
+          {cartItems.map((item) => (
+            <li key={item._id}>{item.name}</li>
+          ))}
+        </ul>
+      ),
+    },
     { title: "วิธีการจ่าย", dataIndex: "paymentMode" },
     { title: "ราคาทั้งหมด", dataIndex: "subTotal" },
     { title: "รับเงิน", dataIndex: "change" },

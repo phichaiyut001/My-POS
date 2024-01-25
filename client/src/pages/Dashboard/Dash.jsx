@@ -74,7 +74,7 @@ function Dash() {
     <LayoutAdmin>
       <main className="main-container">
         <div className="main-title">
-          <h3>DASHBOARD</h3>
+          <h1>DASHBOARD</h1>
         </div>
         <div className="main-cards">
           <div className="card">

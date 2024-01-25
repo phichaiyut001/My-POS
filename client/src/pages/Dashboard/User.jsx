@@ -18,7 +18,11 @@ const User = () => {
         type: "SHOW_LOADING",
       });
       const { data } = await axios.get("/api/users/get-users");
-      setUsersData(data);
+      const usersWithIndex = data.map((users, index) => ({
+        ...users,
+        index: index + 1,
+      }));
+      setUsersData(usersWithIndex);
       dispatch({ type: "HIDE_LOADING" });
       console.log(data);
     } catch (error) {
@@ -34,6 +38,11 @@ const User = () => {
   const handleDelete = async (record) => {};
 
   const columns = [
+    {
+      title: "No",
+      dataIndex: "index",
+      width: 30,
+    },
     { title: "ID", dataIndex: "_id" },
     { title: "UserID", dataIndex: "UserId" },
     // { title: "password", dataIndex: "password" },
@@ -66,7 +75,7 @@ const User = () => {
     <LayoutAdmin>
       <main className="main-container">
         <div className="main-title">
-          <h3>User List</h3>
+          <h1>User List</h1>
         </div>
         <Table columns={columns} dataSource={usersData} bordered />
       </main>

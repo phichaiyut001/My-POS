@@ -24,7 +24,11 @@ const Items = () => {
         type: "SHOW_LOADING",
       });
       const { data } = await axios.get("/api/items/get-item");
-      setItemsData(data);
+      const itemWithIndex = data.map((items, index) => ({
+        ...items,
+        index: index + 1,
+      }));
+      setItemsData(itemWithIndex);
       dispatch({ type: "HIDE_LOADING" });
       console.log(data);
     } catch (error) {
@@ -58,6 +62,11 @@ const Items = () => {
 
   //able data
   const columns = [
+    {
+      title: "No",
+      dataIndex: "index",
+      width: 10,
+    },
     { title: "Name", dataIndex: "name" },
     {
       title: "Image",
