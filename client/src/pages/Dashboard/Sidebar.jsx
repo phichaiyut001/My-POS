@@ -1,4 +1,8 @@
-import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Layout, Menu, message } from "antd";
+import React, { useEffect, useState } from "react";
+
 import {
   BsCart3,
   BsGrid1X2Fill,
@@ -9,7 +13,10 @@ import {
   BsMenuButtonWideFill,
   BsFillGearFill,
 } from "react-icons/bs";
+import { IoIosLogOut } from "react-icons/io";
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
+  const navigate = useNavigate();
+
   return (
     <aside
       id="sidebar"
@@ -17,7 +24,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
     >
       <div className="sidebar-title">
         <div className="sidebar-brand">
-          <BsCart3 className="icon_header" /> SHOP
+          <BsCart3 className="icon_header" /> POS ข้าวปลาทอด
         </div>
         <span className="icon close_icon" onClick={OpenSidebar}>
           X
@@ -26,39 +33,45 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <a href="dashboard">
+          <Link to="/dashboard">
             <BsGrid1X2Fill className="icon" /> Dashboard
-          </a>
+          </Link>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
+          <Link to="/products">
             <BsFillArchiveFill className="icon" /> Products
-          </a>
+          </Link>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
+          <Link to="/categories">
             <BsFillGrid3X3GapFill className="icon" /> Categories
-          </a>
+          </Link>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
+          <Link to="/customers">
             <BsPeopleFill className="icon" /> Customers
-          </a>
+          </Link>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
+          <Link to="/inventory">
             <BsListCheck className="icon" /> Inventory
-          </a>
+          </Link>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
+          <Link to="/reports">
             <BsMenuButtonWideFill className="icon" /> Reports
-          </a>
+          </Link>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsFillGearFill className="icon" /> Setting
-          </a>
+          <Link
+            to="/login"
+            onClick={() => {
+              message.warning("ออกจากระบบสำเร็จ");
+              localStorage.removeItem("auth");
+            }}
+          >
+            <IoIosLogOut className="icon" /> Logout
+          </Link>
         </li>
       </ul>
     </aside>

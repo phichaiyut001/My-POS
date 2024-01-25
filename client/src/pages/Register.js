@@ -20,7 +20,7 @@ const Register = () => {
       dispatch({ type: "HIDE_LOADING" });
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
-      message.error("Someting Went Wrong");
+      message.error("UserId already to use");
       console.log(error);
     }
   };
@@ -35,7 +35,6 @@ const Register = () => {
 
   return (
     <>
-    
       <div className="register ">
         <div className="register-from">
           <h1>POS App</h1>

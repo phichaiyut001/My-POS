@@ -14,11 +14,20 @@ const Login = () => {
         type: "SHOW_LOADING",
       });
       const res = await axios.post("/api/users/login", value);
-      message.success("เข้าสู่ระบบสำเร็จ ");
       // Storing the user details in localStorage -> we can use sessions and cookies otherwise
 
       localStorage.setItem("auth", JSON.stringify(res.data));
-      navigate("/");
+      const isAdmin = res.data.roles.includes("admin");
+
+      // Navigate to the appropriate route based on the user's role
+      if (isAdmin) {
+        navigate("/dashboard");
+        message.success("ยินดีต้อนรับ Admin ");
+      } else {
+        navigate("/");
+        message.success("เข้าสู่ระบบสำเร็จ ");
+      }
+      //   navigate("/");
       dispatch({ type: "HIDE_LOADING" });
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
