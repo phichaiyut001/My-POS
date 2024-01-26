@@ -42,7 +42,7 @@ const registerController = async (req, res) => {
 
     // สร้าง user ใหม่โดยใช้รหัสผ่านที่ถูกเข้ารหัสแล้ว
     const newUser = new userModel({
-      UserId,
+      UserId: UserId,
       password: hashedPassword,
       ...otherFields,
       verified: true,
@@ -65,10 +65,56 @@ const getUsersController = async (req, res) => {
   }
 };
 
+const editUsersController = async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    const updatedUser = {
+      name: req.body.name,
+      UserId: req.body.UserId,
+      roles: req.body.roles,
+    };
+
+    // Check if password is provided in the request
+    if (req.body.password) {
+      // Hash the new password using bcrypt
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      updatedUser.password = hashedPassword;
+    }
+
+    // Find and update user
+    const user = await userModel.findByIdAndUpdate(id, updatedUser, {
+      new: true,
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    return res.status(200).json({ message: "User updated successfully", user });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("UserId already exists.");
+  }
+};
+
+const deleteUserController = async (req, res) => {
+  try {
+    const { UserId } = req.body;
+
+    await userModel.findOneAndDelete({ _id: UserId });
+
+    res.status(200).json("Users Deleted");
+  } catch (error) {
+    res.status(400).send(error);
+    console.log(error);
+  }
+};
 
 module.exports = {
   loginController,
   registerController,
   getUsersController,
+  editUsersController,
+  deleteUserController,
 };

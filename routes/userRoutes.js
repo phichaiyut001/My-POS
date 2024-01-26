@@ -3,6 +3,8 @@ const {
   loginController,
   registerController,
   getUsersController,
+  editUsersController,
+  deleteUserController,
 } = require("../controllers/userController");
 
 const router = express.Router();
@@ -14,5 +16,7 @@ router.get("/get-users", getUsersController);
 
 //method - POST
 router.post("/register", registerController);
+router.put("/edit-users/:id", editUsersController);
+router.post("/delete-users", deleteUserController);
 
 module.exports = router;

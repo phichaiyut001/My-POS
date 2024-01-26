@@ -3,7 +3,7 @@ import LayoutAdmin from "./components/LayoutAdmin";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { EyeOutlined, DeleteOutlined } from "@ant-design/icons";
-import { Table, Modal, Button,message } from "antd";
+import { Table, Modal, Button, message } from "antd";
 import "./components/AdminInvoice.css";
 import { useReactToPrint } from "react-to-print";
 const Bills = () => {
@@ -96,6 +96,7 @@ const Bills = () => {
     {
       title: "วันที่",
       dataIndex: "date",
+      sorter: (a, b) => new Date(a.date) - new Date(b.date), // เรียงลำดับตามวันที่
       render: (date) => formatDate(date), // เรียกใช้ฟังก์ชัน formatDate
     },
 

@@ -25,7 +25,10 @@ const BillPage = () => {
         index: index + 1,
       }));
 
-      setBillsData(billsWithIndex);
+      const sortedBills = billsWithIndex.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+      setBillsData(sortedBills);
       dispatch({ type: "HIDE_LOADING" });
       console.log(data);
     } catch (error) {
@@ -80,6 +83,7 @@ const BillPage = () => {
     {
       title: "วันที่",
       dataIndex: "date",
+      sorter: (a, b) => new Date(b.date) - new Date(a.date),
       render: (date) => formatDate(date), // เรียกใช้ฟังก์ชัน formatDate
     },
 

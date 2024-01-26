@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import LayoutAdmin from "./components/LayoutAdmin";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import axios from "axios";
-import { Table, Modal, Button } from "antd";
+import { Button, Table, Modal, Form, Input, Select, message } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 
 const User = () => {
   const [usersData, setUsersData] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [popupModal, setPopupModal] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState(null);
   const [editUsers, setEditUsers] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const getAllUsers = async () => {
     try {
@@ -35,7 +38,26 @@ const User = () => {
     getAllUsers();
   }, []);
 
-  const handleDelete = async (record) => {};
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleDelete = async (record) => {
+    try {
+      dispatch({
+        type: "SHOW_LOADING",
+      });
+      await axios.post("/api/users/delete-users", { UserId: record._id });
+      message.success("Item Deleted SuccessFully");
+      getAllUsers();
+      setPopupModal(false);
+      dispatch({ type: "HIDE_LOADING" });
+    } catch (error) {
+      dispatch({ type: "HIDE_LOADING" });
+      message.error("Someting Went Wrong");
+      console.log(error);
+    }
+  };
 
   const columns = [
     {
@@ -71,13 +93,113 @@ const User = () => {
     },
   ];
 
+  const handleSubmit = async (value) => {
+    try {
+      dispatch({
+        type: "SHOW_LOADING",
+      });
+
+      const requestData = {
+        name: value.name,
+        UserId: value.UserId,
+        roles: value.roles,
+      };
+
+      // Check if password is provided
+      if (value.password) {
+        requestData.password = value.password;
+      }
+
+      if (editUsers === null) {
+        // Add Item
+        await axios.post("/api/users/register", requestData);
+        message.success("Register SuccessFully");
+      } else {
+        // Update Item using PUT request
+        await axios.put(`/api/users/edit-users/${editUsers._id}`, requestData);
+        message.success("Users Update Successfully");
+      }
+      setPopupModal(false);
+      getAllUsers();
+      dispatch({ type: "HIDE_LOADING" });
+    } catch (error) {
+      dispatch({ type: "HIDE_LOADING" });
+      message.error("UserId already to use");
+      console.log(error);
+    }
+  };
+
   return (
     <LayoutAdmin>
       <main className="main-container">
         <div className="main-title">
           <h1>User List</h1>
+          <Button type="primary" onClick={() => setPopupModal(true)}>
+            Add User
+          </Button>
         </div>
         <Table columns={columns} dataSource={usersData} bordered />
+
+        {popupModal && (
+          <Modal
+            title={`${editUsers !== null ? "Edit User " : "Add New User"}`}
+            open={popupModal}
+            onCancel={() => {
+              setEditUsers(null);
+              setPopupModal(false);
+            }}
+            footer={false}
+          >
+            <Form
+              layout="vertical"
+              initialValues={editUsers}
+              onFinish={handleSubmit}
+            >
+              <Form.Item
+                name="name"
+                label="Name"
+                rules={[{ required: true, message: "กรุณากรอก ชื่อ" }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="UserId"
+                label="User ID"
+                rules={[{ required: true, message: "กรุณากรอก UserId" }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                label="Password"
+                rules={[{ required: true, message: "กรุณากรอก รหัสผ่าน" }]}
+              >
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  suffix={
+                    <EyeOutlined
+                      style={{ cursor: "pointer" }}
+                      onClick={handleTogglePassword}
+                    />
+                  }
+                />
+              </Form.Item>
+              <Form.Item
+                name="roles"
+                label="Roles"
+                rules={[{ required: true, message: "กรุณาเลือกประเภท สินค้า" }]}
+              >
+                <Select>
+                  <Select.Option value="user">User</Select.Option>
+                  <Select.Option value="admin">Admin</Select.Option>
+                </Select>
+              </Form.Item>
+              <Button type="primary" htmlType="submit">
+                SAVE
+              </Button>
+            </Form>
+          </Modal>
+        )}
       </main>
     </LayoutAdmin>
   );
