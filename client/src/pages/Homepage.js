@@ -10,25 +10,27 @@ const Homepage = () => {
   const [selectCategory, setSelectCategory] = useState("rice");
   const categories = [
     {
-      name: "rice",
-      fname: "ข้าว",
-      imageUrl: "/images/Rice.png",
-    },
-    {
-      name: "drinks",
-      fname: "เครื่องดื่ม",
-      imageUrl: "/images/Drink.png",
-    },
-    {
       name: "fish",
       fname: "ปลาทอด",
       imageUrl: "/images/Fish.png",
+    },
+    {
+      name: "rice",
+      fname: "ข้าว",
+      imageUrl: "/images/Rice.png",
     },
     {
       name: "etc",
       fname: "ของทอด",
       imageUrl: "/images/snack.png",
     },
+    {
+      name: "drinks",
+      fname: "เครื่องดื่ม",
+      imageUrl: "/images/Drink.png",
+    },
+    
+   
     {
       name: "chili",
       fname: "น้ำพริก",

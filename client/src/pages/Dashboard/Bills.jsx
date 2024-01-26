@@ -3,7 +3,7 @@ import LayoutAdmin from "./components/LayoutAdmin";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { EyeOutlined, DeleteOutlined } from "@ant-design/icons";
-import { Table, Modal, Button } from "antd";
+import { Table, Modal, Button,message } from "antd";
 import "./components/AdminInvoice.css";
 import { useReactToPrint } from "react-to-print";
 const Bills = () => {
@@ -54,7 +54,22 @@ const Bills = () => {
     return `${day}/${month}/${year}`;
   };
 
-  const handleDelete = async (record) => {};
+  const handleDelete = async (record) => {
+    try {
+      dispatch({
+        type: "SHOW_LOADING",
+      });
+      await axios.post("/api/bills/delete-bills", { billsid: record._id });
+      message.success("Bills Deleted SuccessFully");
+      getAllBills();
+      setPopupModal(false);
+      dispatch({ type: "HIDE_LOADING" });
+    } catch (error) {
+      dispatch({ type: "HIDE_LOADING" });
+      message.error("Someting Went Wrong");
+      console.log(error);
+    }
+  };
   const columns = [
     {
       title: "No",

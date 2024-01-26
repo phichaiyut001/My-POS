@@ -22,7 +22,21 @@ const getBillsController = async (req, res) => {
   }
 };
 
+const deleteBillsController = async (req, res) => {
+  try {
+    const { billsid } = req.body;
+
+    await billsModel.findOneAndDelete({ _id: billsid });
+
+    res.status(200).json("item Deleted");
+  } catch (error) {
+    res.status(400).send(error);
+    console.log(error);
+  }
+};
+
 module.exports = {
   addBillsController,
   getBillsController,
+  deleteBillsController,
 };
