@@ -6,6 +6,7 @@ import { EyeOutlined } from "@ant-design/icons";
 import { Table, Modal, Button } from "antd";
 import "../styles/Invoice.css";
 import { useReactToPrint } from "react-to-print";
+
 const BillPage = () => {
   const componentRef = useRef();
   const [billsData, setBillsData] = useState([]);
@@ -50,11 +51,14 @@ const BillPage = () => {
   const formatDate = (inputDate) => {
     const date = new Date(inputDate);
 
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+    const options = {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+      timeZone: "Asia/Bangkok", // Specify the Bangkok time zone
+    };
 
-    return `${day}/${month}/${year}`;
+    return date.toLocaleString("en-GB", options); // Use 'en-GB' for the desired date format
   };
 
   const columns = [
@@ -137,7 +141,7 @@ const BillPage = () => {
             <div id="mid">
               <div className="mt-">
                 <p>
-                  Date : <b>{selectedBill.date.toString().substring(0, 10)}</b>
+                  Date : <b>{formatDate(selectedBill.date)}</b>
                   <br />
                 </p>
                 <hr style={{ margin: "5px" }} />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Layout, Menu, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -29,6 +30,27 @@ const DefaultLayout = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  const showLogoutConfirmation = () => {
+    Swal.fire({
+      title: "Logout",
+      text: "ต้องการที่จะออกจากระบบหรือไม่?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleLogout();
+      }
+    });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    message.warning("Logged out successfully");
+    navigate("/login");
+  };
   return (
     <Layout>
       {loading && <Spinner />}
@@ -56,11 +78,7 @@ const DefaultLayout = ({ children }) => {
           <Menu.Item
             key="/logout"
             icon={<LogoutOutlined />}
-            onClick={() => {
-              localStorage.removeItem("auth");
-              message.warning("ออกจากระบบสำเร็จ"); // แสดงข้อความ Warning
-              navigate("/login");
-            }}
+            onClick={() => showLogoutConfirmation()}
           >
             Logout
           </Menu.Item>

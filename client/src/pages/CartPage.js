@@ -3,12 +3,14 @@ import DefaultLayout from "../components/DefaultLayout";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import {
   DeleteOutlined,
   PlusCircleOutlined,
   MinusCircleOutlined,
 } from "@ant-design/icons";
 import { Button, Modal, Table, message, Form, Input, Select } from "antd";
+import moment from "moment-timezone";
 
 const CartPage = () => {
   const [changeAmount, setChangeAmount] = useState(0);
@@ -18,6 +20,9 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.rootReducer);
+  const localDateTime = moment
+    .utc(moment().tz("Asia/Bangkok").format())
+    .tz("Asia/Bangkok");
   //handle increament
   const handleIncressment = (record) => {
     dispatch({
@@ -74,17 +79,49 @@ const CartPage = () => {
       render: (id, record) => (
         <DeleteOutlined
           style={{ cursor: "pointer" }}
-          onClick={() => {
-            dispatch({
-              type: "DELETE_FORM_CART",
-              payload: record,
-            });
-            message.warning("Item ถูกลบแล้ว!");
-          }}
+          onClick={() => showDeleteConfirmation(record)}
         />
       ),
     },
   ];
+
+  const showDeleteConfirmation = (record) => {
+    Swal.fire({
+      title: "ต้องการลบหรือไม่ ?",
+      text: "กดปุ่ม Cancel เพื่อยกเลิก!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(record);
+      }
+    });
+  };
+
+  const handleDelete = async (record) => {
+    try {
+      dispatch({
+        type: "DELETE_FORM_CART",
+        payload: record,
+      });
+      // Your axios call to delete the item goes here
+
+      Swal.fire({
+        title: "Deleted!",
+        text: "สินค้าถูกลบแล้ว",
+        icon: "success",
+      });
+      message.success("Item Deleted SuccessFully");
+      dispatch({ type: "HIDE_LOADING" });
+    } catch (error) {
+      dispatch({ type: "HIDE_LOADING" });
+      message.error("Something Went Wrong");
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     let temp = 0;

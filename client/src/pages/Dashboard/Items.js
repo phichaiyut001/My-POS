@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Table, Modal, Form, Input, Select, message } from "antd";
+import Swal from "sweetalert2";
 
 const Items = () => {
   const [file, setFile] = useState(null);
@@ -45,17 +46,37 @@ const Items = () => {
 
   const handleDelete = async (record) => {
     try {
-      dispatch({
-        type: "SHOW_LOADING",
+      const swalResult = await Swal.fire({
+        title: "ต้องการที่จะลบหรือไม่ ?",
+        text: "กด Cancel เพื่อยกเลิก !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       });
-      await axios.post("/api/items/delete-item", { itemId: record._id });
-      message.success("Item Deleted SuccessFully");
-      getAllItems();
-      setPopupModal(false);
-      dispatch({ type: "HIDE_LOADING" });
+
+      if (swalResult.isConfirmed) {
+        dispatch({
+          type: "SHOW_LOADING",
+        });
+
+        await axios.post("/api/items/delete-item", { itemId: record._id });
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "สินค้าถูกลบแล้ว",
+          icon: "success",
+        });
+
+        message.success("items Deleted Successfully");
+        getAllItems();
+        setPopupModal(false);
+        dispatch({ type: "HIDE_LOADING" });
+      }
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
-      message.error("Someting Went Wrong");
+      message.error("Something Went Wrong");
       console.log(error);
     }
   };

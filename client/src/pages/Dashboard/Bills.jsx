@@ -6,6 +6,8 @@ import { EyeOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Table, Modal, Button, message } from "antd";
 import "./components/AdminInvoice.css";
 import { useReactToPrint } from "react-to-print";
+import Swal from "sweetalert2";
+
 const Bills = () => {
   const componentRef = useRef();
   const [billsData, setBillsData] = useState([]);
@@ -47,29 +49,53 @@ const Bills = () => {
   const formatDate = (inputDate) => {
     const date = new Date(inputDate);
 
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+    const options = {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+      timeZone: "Asia/Bangkok", // Specify the Bangkok time zone
+    };
 
-    return `${day}/${month}/${year}`;
+    return date.toLocaleString("en-GB", options); // Use 'en-GB' for the desired date format
   };
 
   const handleDelete = async (record) => {
     try {
-      dispatch({
-        type: "SHOW_LOADING",
+      const swalResult = await Swal.fire({
+        title: "ต้องการที่จะลบหรือไม่ ?",
+        text: "กด Cancel เพื่อยกเลิก !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       });
-      await axios.post("/api/bills/delete-bills", { billsid: record._id });
-      message.success("Bills Deleted SuccessFully");
-      getAllBills();
-      setPopupModal(false);
-      dispatch({ type: "HIDE_LOADING" });
+
+      if (swalResult.isConfirmed) {
+        dispatch({
+          type: "SHOW_LOADING",
+        });
+
+        await axios.post("/api/bills/delete-bills", { billsid: record._id });
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "บิลถูกลบแล้ว",
+          icon: "success",
+        });
+
+        message.success("Bills Deleted Successfully");
+        getAllBills();
+        setPopupModal(false);
+        dispatch({ type: "HIDE_LOADING" });
+      }
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
-      message.error("Someting Went Wrong");
+      message.error("Something Went Wrong");
       console.log(error);
     }
   };
+
   const columns = [
     {
       title: "No",
@@ -123,6 +149,15 @@ const Bills = () => {
     },
   ];
 
+  const confirm = (e) => {
+    console.log(e);
+    message.success("Click on Yes");
+  };
+  const cancel = (e) => {
+    console.log(e);
+    message.error("Click on No");
+  };
+
   return (
     <LayoutAdmin>
       <main className="main-container">
@@ -157,8 +192,7 @@ const Bills = () => {
               <div id="mid">
                 <div className="mt-">
                   <p>
-                    Date :{" "}
-                    <b>{selectedBill.date.toString().substring(0, 10)}</b>
+                    Date : <b>{formatDate(selectedBill.date)}</b>
                     <br />
                   </p>
                   <hr style={{ margin: "5px" }} />

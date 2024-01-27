@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { message, Menu } from "antd";
 import React from "react";
-
+import Swal from "sweetalert2";
 import {
   BsCart3,
   BsGrid1X2Fill,
@@ -11,7 +11,29 @@ import {
   BsMenuButtonWideFill,
 } from "react-icons/bs";
 import { IoIosLogOut } from "react-icons/io";
+
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
+  const showLogoutConfirmation = () => {
+    Swal.fire({
+      title: "Logout",
+      text: "ต้องการที่จะออกจากระบบหรือไม่?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleLogout();
+      }
+    });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    message.warning("Logged out successfully");
+    navigate("/login");
+  };
   const navigate = useNavigate();
   return (
     <aside
@@ -46,11 +68,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         <Menu.Item
           key="/logout"
           icon={<IoIosLogOut />}
-          onClick={() => {
-            localStorage.removeItem("auth");
-            message.warning("ออกจากระบบสำเร็จ"); // แสดงข้อความ Warning
-            navigate("/login");
-          }}
+          onClick={() => showLogoutConfirmation()}
         >
           Logout
         </Menu.Item>

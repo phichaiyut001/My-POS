@@ -5,7 +5,7 @@ import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { Button, Table, Modal, Form, Input, Select, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 const User = () => {
   const [usersData, setUsersData] = useState([]);
   const dispatch = useDispatch();
@@ -44,14 +44,34 @@ const User = () => {
 
   const handleDelete = async (record) => {
     try {
-      dispatch({
-        type: "SHOW_LOADING",
+      const swalResult = await Swal.fire({
+        title: "ต้องการที่จะลบหรือไม่ ?",
+        text: "กด Cancel เพื่อยกเลิก !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       });
-      await axios.post("/api/users/delete-users", { UserId: record._id });
-      message.success("Item Deleted SuccessFully");
-      getAllUsers();
-      setPopupModal(false);
-      dispatch({ type: "HIDE_LOADING" });
+
+      if (swalResult.isConfirmed) {
+        dispatch({
+          type: "SHOW_LOADING",
+        });
+
+        await axios.post("/api/users/delete-users", { UserId: record._id });
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "ผู้ใช้งานถูกลบแล้ว",
+          icon: "success",
+        });
+
+        message.success("Item Deleted SuccessFully");
+        getAllUsers();
+        setPopupModal(false);
+        dispatch({ type: "HIDE_LOADING" });
+      }
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
       message.error("Someting Went Wrong");
