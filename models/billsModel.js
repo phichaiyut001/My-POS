@@ -22,7 +22,8 @@ const billSchema = mongoose.Schema(
     },
     date: {
       type: Date,
-      default: Date.now(),
+      default: () =>
+        new Date().toLocaleString("en-US", { timeZone: "Asia/Bangkok" }),
     },
   },
   { timestamp: true }

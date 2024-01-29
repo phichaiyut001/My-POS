@@ -13,6 +13,7 @@ import { Button, Modal, Table, message, Form, Input, Select } from "antd";
 import moment from "moment-timezone";
 
 const CartPage = () => {
+  const [isGenerateBillDisabled, setIsGenerateBillDisabled] = useState(true);
   const [changeAmount, setChangeAmount] = useState(0);
   const [isCashPaymentMode, setIsCashPaymentMode] = useState(false);
   const [subTotal, setSubTotal] = useState(0);
@@ -21,6 +22,7 @@ const CartPage = () => {
   const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.rootReducer);
   const localDateTime = moment
+
     .utc(moment().tz("Asia/Bangkok").format())
     .tz("Asia/Bangkok");
   //handle increament
@@ -114,7 +116,7 @@ const CartPage = () => {
         text: "สินค้าถูกลบแล้ว",
         icon: "success",
       });
-      message.success("Item Deleted SuccessFully");
+      message.success("สินค้าถูกลบแล้ว");
       dispatch({ type: "HIDE_LOADING" });
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
@@ -127,6 +129,9 @@ const CartPage = () => {
     let temp = 0;
     cartItems.forEach((item) => (temp = temp + item.price * item.quantity));
     setSubTotal(temp);
+
+    // Enable/disable the "Generate Bill" button based on cartItems
+    setIsGenerateBillDisabled(cartItems.length === 0);
   }, [cartItems]);
 
   //handleSubmit
@@ -184,6 +189,20 @@ const CartPage = () => {
     }
   };
 
+  const handleInvoiceCreation = async () => {
+    if (cartItems.length === 0) {
+      // If cart is empty, show SweetAlert warning
+      Swal.fire({
+        title: "ตะกร้าสินค้าว่างเปล่า!",
+        text: "กรุณาเพิ่มสินค้า",
+        icon: "warning",
+      });
+    } else {
+      // If cart is not empty, proceed with invoice creation
+      setBillPopup(true);
+    }
+  };
+
   return (
     <DefaultLayout>
       <h1>Cart Page</h1>
@@ -193,7 +212,7 @@ const CartPage = () => {
         <h3>
           Subt Total : <b> {subTotal.toLocaleString()} </b> ฿{" "}
         </h3>
-        <Button type="primary" onClick={() => setBillPopup(true)}>
+        <Button type="primary" onClick={handleInvoiceCreation}>
           Create Invoice
         </Button>
       </div>

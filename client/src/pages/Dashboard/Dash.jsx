@@ -21,7 +21,7 @@ import {
   Line,
 } from "recharts";
 
-import { Card, Col, Row, Statistic, Tabs, Table } from "antd";
+import { Card, Col, Row, Statistic, Tabs, Table, Badge } from "antd";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -29,6 +29,13 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import _ from "lodash";
 const columns = [
+  {
+    title: "Best Seller",
+    dataIndex: "",
+    render: (_, record, index) => (
+      <Badge count={index + 1} style={{ backgroundColor: "#52c41a" }} />
+    ),
+  },
   { title: "Name", dataIndex: "name" },
   {
     title: "Image",
@@ -121,8 +128,8 @@ const Dash = () => {
   }, [billsData, itemsData]);
 
   useEffect(() => {
-    const dailyRevenue = getDailyRevenueData();
-    setDailyRevenueData(dailyRevenue);
+    const weekRevenue = getWeekRevenueData();
+    setDailyRevenueData(weekRevenue);
   }, [billsData, itemsData]);
 
   const getTotalRevenue = () => {
@@ -233,41 +240,40 @@ const Dash = () => {
 
   // ข้อความที่ต้องการแสดง
 
-  const getDailyRevenueData = () => {
-    const today = moment().clone(); // วันที่ล่าสุดคือวันปัจจุบัน
+  const getWeekRevenueData = () => {
+    // Sort billsData by date in descending order
+    const sortedBills = _.orderBy(billsData, ["date"], ["desc"]);
 
-    const dailyData = billsData.reduce((dailyData, bill) => {
-      const date = moment(bill.date).format("DD-MM-YYYY");
+    // Extract the dates from the sorted billsData
+    const billDates = sortedBills.map((bill) =>
+      moment(bill.date).format("DD-MM-YYYY")
+    );
 
-      if (!dailyData[date]) {
-        dailyData[date] = 0;
-      }
+    // Get unique dates and take the latest 7 (if available)
+    const uniqueDates = _.uniq(billDates);
+    const selectedDates = uniqueDates.slice(0, 7);
 
-      dailyData[date] += bill.subTotal;
+    // Filter billsData to include only data for the selected dates
+    const filteredBills = billsData.filter((bill) => {
+      const billDate = moment(bill.date).format("DD-MM-YYYY");
+      return selectedDates.includes(billDate);
+    });
 
-      return dailyData;
-    }, {});
+    const dailyRevenue = _.groupBy(filteredBills, (bill) =>
+      moment(bill.date).format("DD-MM-YYYY")
+    );
 
-    const billDates = billsData.map((bill) => moment(bill.date));
-    const lastBillDate = moment.max(billDates);
-    const startDate = lastBillDate.clone().subtract(6, "days");
-
-    const filteredData = [];
-
-    for (let i = 0; i < 7; i++) {
-      const currentDate = startDate.clone().add(i, "days");
-      const formattedDate = currentDate.format("DD-MM-YYYY");
-
-      const dailyRevenue = {
-        date: formattedDate,
-        revenue: dailyData[formattedDate] || 0,
-        color: "#8884d8",
+    const chartData = selectedDates.map((date) => {
+      const totalRevenue = dailyRevenue[date]
+        ? dailyRevenue[date].reduce((total, bill) => total + bill.subTotal, 0)
+        : 0;
+      return {
+        date,
+        revenue: totalRevenue,
       };
+    });
 
-      filteredData.push(dailyRevenue);
-    }
-
-    return filteredData;
+    return chartData;
   };
 
   const getTopSellingItems = (billsData, itemsData, limit = 5) => {
@@ -446,7 +452,7 @@ const Dash = () => {
                         <BarChart
                           width={600}
                           height={300}
-                          data={dailyRevenueData}
+                          data={getWeekRevenueData()}
                         >
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="date" />

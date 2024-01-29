@@ -20,15 +20,18 @@ const BillPage = () => {
       dispatch({
         type: "SHOW_LOADING",
       });
+
       const { data } = await axios.get("/api/bills/get-bills");
+
+      // เพิ่ม index ให้กับแต่ละบิล
       const billsWithIndex = data.map((bill, index) => ({
         ...bill,
         index: index + 1,
       }));
 
-      const sortedBills = billsWithIndex.sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      );
+      // เรียงลำดับบิลตาม index ล่าสุดไปยังเก่าสุด
+      const sortedBills = billsWithIndex.sort((a, b) => b.index - a.index);
+
       setBillsData(sortedBills);
       dispatch({ type: "HIDE_LOADING" });
       console.log(data);
