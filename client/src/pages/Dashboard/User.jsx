@@ -4,14 +4,13 @@ import LayoutAdmin from "./components/LayoutAdmin";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { Button, Table, Modal, Form, Input, Select, message } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 const User = () => {
   const [usersData, setUsersData] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [popupModal, setPopupModal] = useState(false);
-  const [selectedUsers, setSelectedUsers] = useState(null);
   const [editUsers, setEditUsers] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -172,7 +171,10 @@ const User = () => {
           >
             <Form
               layout="vertical"
-              initialValues={editUsers}
+              initialValues={{
+                ...editUsers,
+                password: editUsers ? "" : undefined, // Set password to an empty string if editing, otherwise undefined
+              }}
               onFinish={handleSubmit}
             >
               <Form.Item
@@ -192,7 +194,9 @@ const User = () => {
               <Form.Item
                 name="password"
                 label="Password"
-                rules={[{ required: true, message: "กรุณากรอก รหัสผ่าน" }]}
+                rules={[
+                  { required: !editUsers, message: "กรุณากรอก รหัสผ่าน" },
+                ]}
               >
                 <Input
                   type={showPassword ? "text" : "password"}

@@ -97,7 +97,6 @@ const editUsersController = async (req, res) => {
     return res.status(500).send("UserId already exists.");
   }
 };
-
 const deleteUserController = async (req, res) => {
   try {
     const { UserId } = req.body;
