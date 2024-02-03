@@ -83,28 +83,28 @@ const ItemPage = () => {
     { title: "Price", dataIndex: "price" },
     { title: "Stock", dataIndex: "stock" },
     { title: "Category", dataIndex: "category" },
-    {
-      title: "Actions",
-      dataIndex: "_id",
-      render: (id, record) => (
-        <div>
-          <EditOutlined
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              setEditItem(record);
-              setFile(null);
-              setPopupModal(true);
-            }}
-          />
-          {/* <DeleteOutlined
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              handleDelete(record);
-            }}
-          /> */}
-        </div>
-      ),
-    },
+    // {
+    //   title: "Actions",
+    //   dataIndex: "_id",
+    //   render: (id, record) => (
+    //     <div>
+    //       <EditOutlined
+    //         style={{ cursor: "pointer" }}
+    //         onClick={() => {
+    //           setEditItem(record);
+    //           setFile(null);
+    //           setPopupModal(true);
+    //         }}
+    //       />
+    //       {/* <DeleteOutlined
+    //         style={{ cursor: "pointer" }}
+    //         onClick={() => {
+    //           handleDelete(record);
+    //         }}
+    //       /> */}
+    //     </div>
+    //   ),
+    // },
   ];
 
   // handle submit

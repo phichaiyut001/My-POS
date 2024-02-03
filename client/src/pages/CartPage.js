@@ -13,6 +13,7 @@ import { Button, Modal, Table, message, Form, Input, Select } from "antd";
 import moment from "moment-timezone";
 
 const CartPage = () => {
+  const [itemsData, setItemsData] = useState([]);
   const [isGenerateBillDisabled, setIsGenerateBillDisabled] = useState(true);
   const [changeAmount, setChangeAmount] = useState(0);
   const [isCashPaymentMode, setIsCashPaymentMode] = useState(false);
@@ -26,6 +27,26 @@ const CartPage = () => {
     .utc(moment().tz("Asia/Bangkok").format())
     .tz("Asia/Bangkok");
   //handle increament
+
+  const getAllItems = async () => {
+    try {
+      dispatch({
+        type: "SHOW_LOADING",
+      });
+      const { data } = await axios.get("/api/items/get-item");
+      const itemWithIndex = data.map((items, index) => ({
+        ...items,
+        index: index + 1,
+      }));
+      setItemsData(itemWithIndex);
+      dispatch({ type: "HIDE_LOADING" });
+      console.log(data);
+    } catch (error) {
+      dispatch({ type: "HIDE_LOADING" });
+      console.log(error);
+    }
+  };
+
   const handleIncressment = (record) => {
     dispatch({
       type: "UPDATE_CART",
@@ -126,6 +147,7 @@ const CartPage = () => {
   };
 
   useEffect(() => {
+    getAllItems();
     let temp = 0;
     cartItems.forEach((item) => (temp = temp + item.price * item.quantity));
     setSubTotal(temp);
@@ -144,6 +166,23 @@ const CartPage = () => {
         changeAmount,
         userId: JSON.parse(localStorage.getItem("auth"))._id,
       };
+
+      // ตรวจสอบสินค้าใน stock ก่อนที่จะสร้างบิล
+      const itemsInStock = itemsData.filter((item) => {
+        const cartItem = cartItems.find(
+          (cartItem) => cartItem._id === item._id
+        );
+        return cartItem && item.stock >= cartItem.quantity;
+      });
+
+      // if (itemsInStock.length !== cartItems.length) {
+      //   // มีสินค้าในตะกร้าที่มีจำนวนมากกว่าที่มีใน stock
+      //   message.error("มีสินค้าในตะกร้าที่มีจำนวนมากกว่าที่มีใน stock");
+      //   return;
+      // }
+
+      // อัพเดต stock ของสินค้า
+      await updateStock(cartItems);
 
       if (value.paymentMode === "cash") {
         // ตรวจสอบว่าจำนวนเงินสดมากกว่าหรือเท่ากับราคารวมทั้งหมด
@@ -186,6 +225,34 @@ const CartPage = () => {
     } catch (error) {
       message.error("Something Went Wrong");
       console.log(error);
+    }
+  };
+
+  const updateStock = async (cartItems) => {
+    try {
+      const updatedItems = await Promise.all(
+        cartItems.map(async (item) => {
+          const { _id, quantity } = item;
+          const itemData = itemsData.find((data) => data._id === _id);
+          const updatedStock = itemData.stock - quantity;
+
+          // ส่ง request ไปยัง API สำหรับการอัพเดต stock ของสินค้า
+          await axios.put(`/api/items/edit-item/${_id}`, {
+            stock: updatedStock,
+          });
+
+          // สร้างอ็อบเจ็กต์ใหม่ที่มีจำนวนสินค้าในตะกร้าล่าสุด
+          return {
+            ...itemData,
+            stock: updatedStock,
+          };
+        })
+      );
+
+      // อัพเดต state ของ itemsData เพื่อแสดงจำนวนสินค้าใหม่
+      setItemsData(updatedItems);
+    } catch (error) {
+      console.error("Error updating stock:", error);
     }
   };
 

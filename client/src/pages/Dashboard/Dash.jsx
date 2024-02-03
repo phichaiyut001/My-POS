@@ -28,6 +28,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import _ from "lodash";
+
 const columns = [
   {
     title: "Best Seller",
