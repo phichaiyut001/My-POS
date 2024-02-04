@@ -4,7 +4,7 @@
   },
   "name": "ปลาดุก 2 ตัว",
   "price": 100,
-  "stock": 0,
+  "stock": 20,
   "category": "fish",
   "image": "image_1705842724025.jpg",
   "__v": 0
@@ -15,7 +15,7 @@
   },
   "name": "ปลานิลทอด 6 ตัว ",
   "price": 100,
-  "stock": 0,
+  "stock": 20,
   "category": "fish",
   "image": "image_1705842306456.jpg",
   "__v": 0
@@ -26,7 +26,7 @@
   },
   "name": "โค้ก",
   "price": 20,
-  "stock": 80,
+  "stock": 49,
   "category": "drinks",
   "image": "image_1705842333478.jpg",
   "__v": 0
@@ -37,7 +37,7 @@
   },
   "name": "ข้าวหอม",
   "price": 10,
-  "stock": -10,
+  "stock": 100,
   "category": "rice",
   "image": "image_1705842244534.jpg",
   "__v": 0
@@ -48,7 +48,7 @@
   },
   "name": "ข้าวปลานิลทอด",
   "price": 50,
-  "stock": 0,
+  "stock": 20,
   "category": "rice",
   "image": "image_1705842474095.jpg",
   "__v": 0
@@ -59,7 +59,7 @@
   },
   "name": "ข้าวปลาดุกทอด",
   "price": 60,
-  "stock": 0,
+  "stock": 20,
   "category": "rice",
   "image": "image_1705842518383.jpg",
   "__v": 0
@@ -70,7 +70,7 @@
   },
   "name": "ปลาดุก 3 ตัว",
   "price": 120,
-  "stock": 0,
+  "stock": 20,
   "category": "fish",
   "image": "image_1705842783398.jpg",
   "__v": 0
@@ -81,7 +81,7 @@
   },
   "name": "นักเก็ตไก่",
   "price": 50,
-  "stock": -3,
+  "stock": 20,
   "category": "etc",
   "image": "image_1705843508753.jpg",
   "__v": 0
@@ -92,7 +92,7 @@
   },
   "name": "ชีสบอล",
   "price": 50,
-  "stock": -3,
+  "stock": 20,
   "category": "etc",
   "image": "image_1705843570048.jpg",
   "__v": 0
@@ -103,7 +103,7 @@
   },
   "name": "ไก่จ๊อ",
   "price": 50,
-  "stock": -3,
+  "stock": 20,
   "category": "etc",
   "image": "image_1705843683098.jpg",
   "__v": 0
@@ -114,7 +114,7 @@
   },
   "name": "น้ำพริกแมงดา",
   "price": 25,
-  "stock": -1,
+  "stock": 20,
   "category": "chili",
   "image": "image_1705843796443.jpg",
   "__v": 0
@@ -125,7 +125,7 @@
   },
   "name": "น้ำพริกตาแดง",
   "price": 25,
-  "stock": -1,
+  "stock": 20,
   "category": "chili",
   "image": "image_1705843806954.jpg",
   "__v": 0
@@ -136,7 +136,7 @@
   },
   "name": "น้ำพริกหมูผัด",
   "price": 25,
-  "stock": -1,
+  "stock": 20,
   "category": "chili",
   "image": "image_1705843824476.jpg",
   "__v": 0
