@@ -29,8 +29,7 @@ const Homepage = () => {
       fname: "เครื่องดื่ม",
       imageUrl: "/images/Drink.png",
     },
-    
-   
+
     {
       name: "chili",
       fname: "น้ำพริก",
@@ -48,7 +47,7 @@ const Homepage = () => {
         const { data } = await axios.get("/api/items/get-item");
         setItemsData(data);
         dispatch({ type: "HIDE_LOADING" });
-        console.log(data);
+        //console.log(data);
       } catch (error) {
         console.log(error);
       }

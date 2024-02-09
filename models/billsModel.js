@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const billSchema = mongoose.Schema(
   {
+    sellname: {
+      type: String,
+      required: true,
+    },
     subTotal: {
       type: Number,
       required: true,

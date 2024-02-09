@@ -88,9 +88,9 @@ const Items = () => {
       dataIndex: "index",
       width: 10,
     },
-    { title: "Name", dataIndex: "name" },
+    { title: "ชื่อสินค้า", dataIndex: "name" },
     {
-      title: "Image",
+      title: "รูปสินค้า",
       dataIndex: "image",
       render: (image, record) => (
         <img
@@ -101,11 +101,11 @@ const Items = () => {
         />
       ),
     },
-    { title: "Price", dataIndex: "price" },
-    { title: "Stock", dataIndex: "stock" },
-    { title: "Category", dataIndex: "category" },
+    { title: "ราคา", dataIndex: "price" },
+    { title: "จำนวน", dataIndex: "stock" },
+    { title: "หมวดหมู่", dataIndex: "category" },
     {
-      title: "Actions",
+      title: "",
       dataIndex: "_id",
       render: (id, record) => (
         <div>
@@ -172,16 +172,16 @@ const Items = () => {
     <LayoutAdmin>
       <main className="main-container">
         <div className="d-flex justify-content-between">
-          <h1>Inventory List</h1>
+          <h1>รายการสินค้า</h1>
           <Button type="primary" onClick={() => setPopupModal(true)}>
-            Add Item
+            เพิ่มสินค้า
           </Button>
         </div>
         <Table columns={columns} dataSource={itemsData} bordered />
 
         {popupModal && (
           <Modal
-            title={`${editItem !== null ? "Edit Item " : "Add New Item"}`}
+            title={`${editItem !== null ? "แก้ไขสินค้า " : "เพิ่มสินค้า ใหม่"}`}
             open={popupModal}
             onCancel={() => {
               setEditItem(null);
@@ -196,28 +196,28 @@ const Items = () => {
             >
               <Form.Item
                 name="name"
-                label="Name"
+                label="ชื่อสินค้า"
                 rules={[{ required: true, message: "กรุณากรอก ชื่อสินค้า" }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 name="price"
-                label="Price"
+                label="ราคา"
                 rules={[{ required: true, message: "กรุณากรอก ราคาสินค้า" }]}
               >
                 <Input type="number" />
               </Form.Item>
               <Form.Item
                 name="stock"
-                label="stock"
+                label="จำนวน"
                 rules={[{ required: true, message: "กรุณากรอก จำนวนสินค้า" }]}
               >
                 <Input type="number" />
               </Form.Item>
               <Form.Item
                 name="image"
-                label="Image"
+                label="รูปสินค้า"
                 rules={[{ required: true, message: "กรุณาใส่รูปสินค้า" }]}
               >
                 {editItem && editItem.image && (
@@ -233,7 +233,7 @@ const Items = () => {
               </Form.Item>
               <Form.Item
                 name="category"
-                label="Category"
+                label="หมวดหมู่"
                 rules={[{ required: true, message: "กรุณาเลือกประเภท สินค้า" }]}
               >
                 <Select>
@@ -246,7 +246,7 @@ const Items = () => {
               </Form.Item>
               <div className="d-flex justify-content-end">
                 <Button type="primary" htmlType="submit">
-                  SAVE
+                  บันทึก
                 </Button>
               </div>
             </Form>

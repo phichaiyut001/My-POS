@@ -67,9 +67,9 @@ const ItemPage = () => {
       dataIndex: "index",
       width: 10,
     },
-    { title: "Name", dataIndex: "name" },
+    { title: "ชื่อสินค้า", dataIndex: "name" },
     {
-      title: "Image",
+      title: "รูปสินค้า",
       dataIndex: "image",
       render: (image, record) => (
         <img
@@ -80,9 +80,9 @@ const ItemPage = () => {
         />
       ),
     },
-    { title: "Price", dataIndex: "price" },
-    { title: "Stock", dataIndex: "stock" },
-    { title: "Category", dataIndex: "category" },
+    { title: "ราคา", dataIndex: "price" },
+    { title: "จำนวน", dataIndex: "stock" },
+    { title: "หมวดหมู่", dataIndex: "category" },
     // {
     //   title: "Actions",
     //   dataIndex: "_id",
@@ -150,7 +150,7 @@ const ItemPage = () => {
   return (
     <DefaultLayout>
       <div className="d-flex justify-content-between">
-        <h1>Item List</h1>
+        <h1>รายการสินค้า</h1>
         {/* <Button type="primary" onClick={() => setPopupModal(true)}>
           Add Item
         </Button> */}

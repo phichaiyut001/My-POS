@@ -13,11 +13,13 @@ import { Button, Modal, Table, message, Form, Input, Select } from "antd";
 import moment from "moment-timezone";
 
 const CartPage = () => {
+  const [user, setUser] = useState(null);
   const [itemsData, setItemsData] = useState([]);
   const [isGenerateBillDisabled, setIsGenerateBillDisabled] = useState(true);
   const [changeAmount, setChangeAmount] = useState(0);
   const [isCashPaymentMode, setIsCashPaymentMode] = useState(false);
   const [subTotal, setSubTotal] = useState(0);
+  const [sellname, setSellName] = useState("");
   const [billPopup, setBillPopup] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,9 +65,9 @@ const CartPage = () => {
   };
 
   const columns = [
-    { title: "Name", dataIndex: "name" },
+    { title: "ชื่อสินค้า", dataIndex: "name" },
     {
-      title: "Image",
+      title: "รูปสินค้า",
       dataIndex: "image",
       render: (image, record) => (
         <img
@@ -76,28 +78,29 @@ const CartPage = () => {
         />
       ),
     },
-    { title: "Price", dataIndex: "price" },
+    { title: "ราคา", dataIndex: "price" },
     {
-      title: "Quantity",
+      title: "จำนวน",
       dataIndex: "_id",
       render: (id, record) => (
         <div>
-          <PlusCircleOutlined
-            className="mx-3"
-            style={{ cursor: "pointer" }}
-            onClick={() => handleIncressment(record)}
-          />
-          <b>{record.quantity}</b>
           <MinusCircleOutlined
             className="mx-3"
             style={{ cursor: "pointer" }}
             onClick={() => handleDecressment(record)}
           />
+          <b>{record.quantity}</b>
+
+          <PlusCircleOutlined
+            className="mx-3"
+            style={{ cursor: "pointer" }}
+            onClick={() => handleIncressment(record)}
+          />
         </div>
       ),
     },
     {
-      title: "Actions",
+      title: "",
       dataIndex: "_id",
       render: (id, record) => (
         <DeleteOutlined
@@ -153,6 +156,8 @@ const CartPage = () => {
     setSubTotal(temp);
 
     // Enable/disable the "Generate Bill" button based on cartItems
+    const loggedInUser = JSON.parse(localStorage.getItem("auth"));
+    setUser(loggedInUser);
     setIsGenerateBillDisabled(cartItems.length === 0);
   }, [cartItems]);
 
@@ -162,6 +167,7 @@ const CartPage = () => {
       let newObject = {
         ...value,
         cartItems,
+        sellname: user ? user.name : "",
         subTotal,
         changeAmount,
         userId: JSON.parse(localStorage.getItem("auth"))._id,
@@ -272,7 +278,7 @@ const CartPage = () => {
 
   return (
     <DefaultLayout>
-      <h1>Cart Page</h1>
+      <h1>ตะกร้าสินค้าว่างเปล่า</h1>
       <Table columns={columns} dataSource={cartItems} bordered />
       <div className="d-flex flex-column align-items-end">
         <hr />
@@ -280,17 +286,20 @@ const CartPage = () => {
           Subt Total : <b> {subTotal.toLocaleString()} </b> ฿{" "}
         </h3>
         <Button type="primary" onClick={handleInvoiceCreation}>
-          Create Invoice
+          ชำระเงิน
         </Button>
       </div>
       <Modal
-        title="Create Invoice"
+        title="สร้างบิลของสินค้า"
         visible={billPopup}
         onCancel={() => setBillPopup(false)}
         footer={false}
       >
         <Form layout="vertical" onFinish={handleSubmit}>
-          <Form.Item name="paymentMode" label="Payment Method">
+          <Form.Item label="ชื่อคนขาย">
+            <Input value={user ? user.name : ""} disabled />
+          </Form.Item>
+          <Form.Item name="paymentMode" label="วิธีจ่ายเงิน">
             <Select
               onChange={(value) => setIsCashPaymentMode(value === "cash")}
             >
@@ -312,17 +321,17 @@ const CartPage = () => {
           )}
           <div className="bill-it">
             <h5>
-              Total : <b>{subTotal.toLocaleString()}</b>
+              ราคาทั้งหมด : <b>{subTotal.toLocaleString()}</b>
             </h5>
             {changeAmount > 0 && (
               <h5>
-                Change : <b>{changeAmount.toLocaleString()}</b>
+                เงินทอน : <b>{changeAmount.toLocaleString()}</b>
               </h5>
             )}
           </div>
           <div className="d-flex justify-content-end">
             <Button type="primary" htmlType="submit">
-              Generate Bill
+              สร้างบิล
             </Button>
           </div>
         </Form>

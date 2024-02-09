@@ -71,9 +71,8 @@ const BillPage = () => {
       sorter: (a, b) => a.index - b.index,
       width: 60,
     },
-    { title: "ID", dataIndex: "_id" },
     {
-      title: "สินค้า",
+      title: "ชื่อสินค้า",
       dataIndex: "cartItems",
       render: (cartItems) => (
         <ul style={{ listStyle: "square" }}>
@@ -83,6 +82,7 @@ const BillPage = () => {
         </ul>
       ),
     },
+    { title: "คนที่ขาย", dataIndex: "sellname" },
     { title: "วิธีการจ่าย", dataIndex: "paymentMode" },
     { title: "ราคาทั้งหมด", dataIndex: "subTotal" },
     { title: "รับเงิน", dataIndex: "change" },
@@ -95,7 +95,7 @@ const BillPage = () => {
     },
 
     {
-      title: "Actions",
+      title: "",
       dataIndex: "_id",
       render: (id, record) => (
         <div>
@@ -114,7 +114,7 @@ const BillPage = () => {
   return (
     <DefaultLayout>
       <div className="d-flex justify-content-between">
-        <h1>Invoice list</h1>
+        <h1>รายการใบเสร็จการขาย</h1>
       </div>
       <Table columns={columns} dataSource={billsData} bordered />
 
@@ -122,7 +122,7 @@ const BillPage = () => {
         <Modal
           width={400}
           pagination={false}
-          title="Invoice Details"
+          title="รายละเอียดใบเสร็จ"
           visible={popupModal}
           onCancel={() => {
             setPopupModal(false);
@@ -144,7 +144,10 @@ const BillPage = () => {
             <div id="mid">
               <div className="mt-">
                 <p>
+                  พนักงานขาย : <b>{selectedBill.sellname}</b>
+                  <br />
                   Date : <b>{formatDate(selectedBill.date)}</b>
+                  <br />
                   <br />
                 </p>
                 <hr style={{ margin: "5px" }} />
@@ -157,17 +160,17 @@ const BillPage = () => {
                   <tbody>
                     <tr className="tabletitle">
                       <td className="item">
-                        <h2>Item</h2>
+                        <h2>ชื่อสินค้า</h2>
                       </td>
                       <td className="Hours">
-                        <h2>Qty</h2>
+                        <h2>จำนวน</h2>
                       </td>
 
                       <td className="Rate">
-                        <h2>Price</h2>
+                        <h2>ราคา</h2>
                       </td>
                       <td className="Rate">
-                        <h2>Total</h2>
+                        <h2>ทั้งหมด</h2>
                       </td>
                       <td className="Rate"></td>
                     </tr>
@@ -198,7 +201,7 @@ const BillPage = () => {
                       <td />
 
                       <td className="Rate">
-                        <h2>Total Amount: </h2>
+                        <h2>ราคาทั้งหมด: </h2>
                       </td>
                       <td className="payment">
                         <h2>{selectedBill.subTotal.toLocaleString()}</h2>
@@ -242,7 +245,7 @@ const BillPage = () => {
           </div>
           <div className="d-flex justify-content-end mt-3">
             <Button type="primary" onClick={handlePrint}>
-              Print this out!
+              ปริ้นใบเสร็จ
             </Button>
           </div>
         </Modal>

@@ -54,23 +54,23 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         defaultSelectedKeys={window.location.pathname}
       >
         <Menu.Item key="/Dashboard" icon={<BsGrid1X2Fill />}>
-          <Link to="/Dashboard">Dashboard</Link>
+          <Link to="/Dashboard">แดชบอร์ด</Link>
         </Menu.Item>
         <Menu.Item key="/inventory" icon={<BsListCheck />}>
-          <Link to="/inventory">Inventory</Link>
+          <Link to="/inventory">รายการสินค้า</Link>
         </Menu.Item>
         <Menu.Item key="/Billsadmin" icon={<BsFillArchiveFill />}>
-          <Link to="/Billsadmin">Bills</Link>
+          <Link to="/Billsadmin">รายการบิล</Link>
         </Menu.Item>
         <Menu.Item key="/userlist" icon={<BsPeopleFill />}>
-          <Link to="/userlist">User</Link>
+          <Link to="/userlist">ผู้ใช้งาน</Link>
         </Menu.Item>
         <Menu.Item
           key="/logout"
           icon={<IoIosLogOut />}
           onClick={() => showLogoutConfirmation()}
         >
-          Logout
+          ออกจากระบบ
         </Menu.Item>
       </Menu>
       {/* <ul className="sidebar-list">

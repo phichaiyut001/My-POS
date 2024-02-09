@@ -31,13 +31,13 @@ import _ from "lodash";
 
 const columns = [
   {
-    title: "Best Seller",
+    title: "สินค้าขายดี",
     dataIndex: "",
     render: (_, record, index) => (
       <Badge count={index + 1} style={{ backgroundColor: "#52c41a" }} />
     ),
   },
-  { title: "Name", dataIndex: "name" },
+  { title: "ชื่อสินค้า", dataIndex: "name" },
   {
     title: "Image",
     dataIndex: "image",
@@ -45,9 +45,9 @@ const columns = [
       <img src={`/images/${image}`} alt={record.name} height="60" width="60" />
     ),
   },
-  { title: "Price", dataIndex: "price" },
+  { title: "ราคา", dataIndex: "price" },
   { title: "จำนวนที่ขายได้", dataIndex: "amount" },
-  { title: "Category", dataIndex: "category" },
+  { title: "หมวดหมู่", dataIndex: "category" },
 ];
 
 const Dash = () => {
@@ -321,7 +321,7 @@ const Dash = () => {
           <Col span={12} style={{ flex: 1 }}>
             <Card bordered={false}>
               <Statistic
-                title="Revenue"
+                title="รายได้ทั้งหมด"
                 value={getTotalRevenue()}
                 //   precision={2}
                 valueStyle={{
@@ -336,7 +336,7 @@ const Dash = () => {
           <Col span={12} style={{ flex: 1 }}>
             <Card bordered={false}>
               <Statistic
-                title="Aveage sale value"
+                title="รายได้เฉลี่ยต่อบิล"
                 value={getAverageSubtotalPerBill()}
                 precision={0}
                 valueStyle={{
@@ -350,7 +350,7 @@ const Dash = () => {
           <Col span={12} style={{ flex: 1 }}>
             <Card bordered={false}>
               <Statistic
-                title="Revenue per day"
+                title="รายได้รายวัน"
                 value={getTotalRevenuePerDay()}
                 //    precision={2}
                 valueStyle={{
@@ -364,7 +364,7 @@ const Dash = () => {
           <Col span={12} style={{ flex: 1 }}>
             <Card bordered={false}>
               <Statistic
-                title="User"
+                title="ผู้ใช้งาน"
                 value={usersData.length}
                 valueStyle={{
                   color: "#3498DB",
@@ -377,7 +377,7 @@ const Dash = () => {
           <Col span={12} style={{ flex: 1 }}>
             <Card bordered={false}>
               <Statistic
-                title="Bills"
+                title="บิล"
                 value={billsData.length}
                 valueStyle={{
                   color: "#3498DB",

@@ -56,7 +56,9 @@ const DefaultLayout = ({ children }) => {
       {loading && <Spinner />}
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">
-          <h1 className="text-center text-light font-wight-bold mt-4">POS</h1>
+          <h1 className="text-center text-light font-wight-bold mt-4">
+            POS ข้าวปลาทอด
+          </h1>
         </div>
         <Menu
           theme="dark"
@@ -64,13 +66,13 @@ const DefaultLayout = ({ children }) => {
           defaultSelectedKeys={window.location.pathname}
         >
           <Menu.Item key="/" icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
+            <Link to="/">หน้าแรก</Link>
           </Menu.Item>
           <Menu.Item key="/bills" icon={<CopyOutlined />}>
-            <Link to="/bills">Bills</Link>
+            <Link to="/bills">รายการบิล</Link>
           </Menu.Item>
           <Menu.Item key="/items" icon={<UnorderedListOutlined />}>
-            <Link to="/items">Items</Link>
+            <Link to="/items">รายการสินค้า</Link>
           </Menu.Item>
           {/* <Menu.Item key="/customers" icon={<UserOutlined />}>
             <Link to="/customers">Cutomers</Link>
@@ -80,7 +82,7 @@ const DefaultLayout = ({ children }) => {
             icon={<LogoutOutlined />}
             onClick={() => showLogoutConfirmation()}
           >
-            Logout
+            ออกจากระบบ
           </Menu.Item>
         </Menu>
       </Sider>

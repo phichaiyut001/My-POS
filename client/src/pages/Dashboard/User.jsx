@@ -84,13 +84,12 @@ const User = () => {
       dataIndex: "index",
       width: 30,
     },
-    { title: "ID", dataIndex: "_id" },
-    { title: "UserID", dataIndex: "UserId" },
+    { title: "ไอดีผู้ใช้งาน", dataIndex: "UserId" },
     // { title: "password", dataIndex: "password" },
-    { title: "Name", dataIndex: "name" },
-    { title: "Roles", dataIndex: "roles" },
+    { title: "ชื่อ", dataIndex: "name" },
+    { title: "ตำแหน่ง", dataIndex: "roles" },
     {
-      title: "Actions",
+      title: "",
       dataIndex: "_id",
       render: (id, record) => (
         <div>
