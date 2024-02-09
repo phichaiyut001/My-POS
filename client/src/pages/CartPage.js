@@ -181,11 +181,11 @@ const CartPage = () => {
         return cartItem && item.stock >= cartItem.quantity;
       });
 
-      // if (itemsInStock.length !== cartItems.length) {
-      //   // มีสินค้าในตะกร้าที่มีจำนวนมากกว่าที่มีใน stock
-      //   message.error("มีสินค้าในตะกร้าที่มีจำนวนมากกว่าที่มีใน stock");
-      //   return;
-      // }
+      if (itemsInStock.length !== cartItems.length) {
+        // มีสินค้าในตะกร้าที่มีจำนวนมากกว่าที่มีใน stock
+        message.error("มีสินค้าในตะกร้าที่มีจำนวนมากกว่าที่มีใน stock");
+        return;
+      }
 
       // อัพเดต stock ของสินค้า
       await updateStock(cartItems);
