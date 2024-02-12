@@ -2132,4 +2132,928 @@
     "$date": "2024-02-04T15:03:22.000Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4c7b5befde748cdb42793"
+  },
+  "subTotal": 20,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad12235f8284069a1cf645",
+      "name": "โค้ก",
+      "price": 20,
+      "stock": 49,
+      "category": "drinks",
+      "image": "image_1705842333478.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T12:23:17.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4c8f5b8131a78d36c965b"
+  },
+  "subTotal": 20,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad12235f8284069a1cf645",
+      "name": "โค้ก",
+      "price": 20,
+      "stock": 1,
+      "category": "drinks",
+      "image": "image_1705842333478.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T12:28:37.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4cb2355886b53e7015afc"
+  },
+  "subTotal": 10,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอม",
+      "price": 10,
+      "stock": 100,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T12:37:55.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4cb5759a2a575a2832a36"
+  },
+  "subTotal": 50,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอม",
+      "price": 10,
+      "stock": 100,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 5
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T12:38:47.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4cd8b8bcbd15d7a09fb8b"
+  },
+  "subTotal": 160,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad1b72f78def8f998cc7a9",
+      "name": "ชีสบอล",
+      "price": 50,
+      "stock": 20,
+      "category": "etc",
+      "image": "image_1705843570048.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 20,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 20,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T12:48:11.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4df5a8d4a00e6077a6d58"
+  },
+  "subTotal": 50,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 19,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T14:04:10.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c4df6a8d4a00e6077a6d65"
+  },
+  "subTotal": 50,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 18,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-08T14:04:26.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5d9a67833a81c493c4066"
+  },
+  "subTotal": 170,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad12235f8284069a1cf645",
+      "name": "โค้ก",
+      "price": 20,
+      "stock": 1,
+      "category": "drinks",
+      "image": "image_1705842333478.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1b72f78def8f998cc7a9",
+      "name": "ชีสบอล",
+      "price": 50,
+      "stock": 19,
+      "category": "etc",
+      "image": "image_1705843570048.jpg",
+      "__v": 0,
+      "quantity": 3
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T07:52:06.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5e13527090b9650cb2cd3"
+  },
+  "sellname": "user",
+  "subTotal": 50,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 9,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T08:24:21.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5e19b27090b9650cb2ced"
+  },
+  "sellname": "Admins",
+  "subTotal": 220,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 8,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 2
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 17,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 2
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T08:26:03.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5e2512787450b051f9431"
+  },
+  "sellname": "Admins",
+  "subTotal": 170,
+  "change": 200,
+  "changeAmount": 30,
+  "paymentMode": "cash",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 6,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 2
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 15,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอม",
+      "price": 10,
+      "stock": 90,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T08:29:05.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5e7ad6e32921cee74aa9b"
+  },
+  "sellname": "Admins",
+  "subTotal": 50,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 4,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T08:51:57.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5e89e15481e3b4ca81b56"
+  },
+  "sellname": "user",
+  "subTotal": 440,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 14,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 3,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอมมะลิ",
+      "price": 10,
+      "stock": 89,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65acf83c0d13b76a1ed4c323",
+      "name": "ปลาดุก 2 ตัว",
+      "price": 100,
+      "stock": 40,
+      "category": "fish",
+      "image": "image_1705842724025.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad05a5c88324e1a664c87d",
+      "name": "ปลานิลทอด 6 ตัว ",
+      "price": 100,
+      "stock": 20,
+      "category": "fish",
+      "image": "image_1705842306456.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad185f00c49c1dc9f456b6",
+      "name": "ปลาดุก 3 ตัว",
+      "price": 120,
+      "stock": 20,
+      "category": "fish",
+      "image": "image_1705842783398.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T08:55:58.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c5e8b415481e3b4ca81b62"
+  },
+  "sellname": "user",
+  "subTotal": 185,
+  "change": 200,
+  "changeAmount": 15,
+  "paymentMode": "cash",
+  "cartItems": [
+    {
+      "_id": "65ad1c70ac926ac0f59e7e1a",
+      "name": "น้ำพริกหมูผัด",
+      "price": 25,
+      "stock": 20,
+      "category": "chili",
+      "image": "image_1705843824476.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c5eac926ac0f59e7e17",
+      "name": "น้ำพริกตาแดง",
+      "price": 25,
+      "stock": 20,
+      "category": "chili",
+      "image": "image_1705843806954.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c54ac926ac0f59e7e14",
+      "name": "น้ำพริกแมงดา",
+      "price": 25,
+      "stock": 20,
+      "category": "chili",
+      "image": "image_1705843796443.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1b34f78def8f998cc7a4",
+      "name": "นักเก็ตไก่",
+      "price": 50,
+      "stock": 20,
+      "category": "etc",
+      "image": "image_1705843508753.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1b72f78def8f998cc7a9",
+      "name": "ชีสบอล",
+      "price": 50,
+      "stock": 16,
+      "category": "etc",
+      "image": "image_1705843570048.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอมมะลิ",
+      "price": 10,
+      "stock": 88,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-09T08:56:20.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca45f261bc352eabb4831d"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 120,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอมมะลิ",
+      "price": 10,
+      "stock": 87,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 27,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 13,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:23:14.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca460161bc352eabb48326"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 320,
+  "change": 400,
+  "changeAmount": 80,
+  "paymentMode": "cash",
+  "cartItems": [
+    {
+      "_id": "65acf83c0d13b76a1ed4c323",
+      "name": "ปลาดุก 2 ตัว",
+      "price": 100,
+      "stock": 39,
+      "category": "fish",
+      "image": "image_1705842724025.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad05a5c88324e1a664c87d",
+      "name": "ปลานิลทอด 6 ตัว ",
+      "price": 100,
+      "stock": 19,
+      "category": "fish",
+      "image": "image_1705842306456.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad185f00c49c1dc9f456b6",
+      "name": "ปลาดุก 3 ตัว",
+      "price": 120,
+      "stock": 19,
+      "category": "fish",
+      "image": "image_1705842783398.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:23:29.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca460d61bc352eabb4832f"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 150,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad1b34f78def8f998cc7a4",
+      "name": "นักเก็ตไก่",
+      "price": 50,
+      "stock": 19,
+      "category": "etc",
+      "image": "image_1705843508753.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1b72f78def8f998cc7a9",
+      "name": "ชีสบอล",
+      "price": 50,
+      "stock": 15,
+      "category": "etc",
+      "image": "image_1705843570048.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1be3f78def8f998cc7ae",
+      "name": "ไก่จ๊อ",
+      "price": 50,
+      "stock": 20,
+      "category": "etc",
+      "image": "image_1705843683098.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:23:41.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca461c61bc352eabb48338"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 75,
+  "change": 100,
+  "changeAmount": 25,
+  "paymentMode": "cash",
+  "cartItems": [
+    {
+      "_id": "65ad1c54ac926ac0f59e7e14",
+      "name": "น้ำพริกแมงดา",
+      "price": 25,
+      "stock": 19,
+      "category": "chili",
+      "image": "image_1705843796443.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c5eac926ac0f59e7e17",
+      "name": "น้ำพริกตาแดง",
+      "price": 25,
+      "stock": 19,
+      "category": "chili",
+      "image": "image_1705843806954.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c70ac926ac0f59e7e1a",
+      "name": "น้ำพริกหมูผัด",
+      "price": 25,
+      "stock": 19,
+      "category": "chili",
+      "image": "image_1705843824476.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:23:56.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca462c61bc352eabb48342"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 185,
+  "change": 200,
+  "changeAmount": 15,
+  "paymentMode": "cash",
+  "cartItems": [
+    {
+      "_id": "65acf83c0d13b76a1ed4c323",
+      "name": "ปลาดุก 2 ตัว",
+      "price": 100,
+      "stock": 38,
+      "category": "fish",
+      "image": "image_1705842724025.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอมมะลิ",
+      "price": 10,
+      "stock": 86,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1b72f78def8f998cc7a9",
+      "name": "ชีสบอล",
+      "price": 50,
+      "stock": 14,
+      "category": "etc",
+      "image": "image_1705843570048.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c70ac926ac0f59e7e1a",
+      "name": "น้ำพริกหมูผัด",
+      "price": 25,
+      "stock": 18,
+      "category": "chili",
+      "image": "image_1705843824476.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:24:12.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca463b61bc352eabb4834c"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 225,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad05a5c88324e1a664c87d",
+      "name": "ปลานิลทอด 6 ตัว ",
+      "price": 100,
+      "stock": 18,
+      "category": "fish",
+      "image": "image_1705842306456.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 26,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1be3f78def8f998cc7ae",
+      "name": "ไก่จ๊อ",
+      "price": 50,
+      "stock": 19,
+      "category": "etc",
+      "image": "image_1705843683098.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c5eac926ac0f59e7e17",
+      "name": "น้ำพริกตาแดง",
+      "price": 25,
+      "stock": 18,
+      "category": "chili",
+      "image": "image_1705843806954.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:24:27.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca465861bc352eabb48357"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 280,
+  "change": 300,
+  "changeAmount": 20,
+  "paymentMode": "cash",
+  "cartItems": [
+    {
+      "_id": "65ad185f00c49c1dc9f456b6",
+      "name": "ปลาดุก 3 ตัว",
+      "price": 120,
+      "stock": 18,
+      "category": "fish",
+      "image": "image_1705842783398.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 12,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1b34f78def8f998cc7a4",
+      "name": "นักเก็ตไก่",
+      "price": 50,
+      "stock": 18,
+      "category": "etc",
+      "image": "image_1705843508753.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c54ac926ac0f59e7e14",
+      "name": "น้ำพริกแมงดา",
+      "price": 25,
+      "stock": 18,
+      "category": "chili",
+      "image": "image_1705843796443.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad1c5eac926ac0f59e7e17",
+      "name": "น้ำพริกตาแดง",
+      "price": 25,
+      "stock": 17,
+      "category": "chili",
+      "image": "image_1705843806954.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T16:24:56.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ca4f3f1e86723cea96d111"
+  },
+  "sellname": "Admins",
+  "subTotal": 360,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอมมะลิ",
+      "price": 10,
+      "stock": 85,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 3
+    },
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 25,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 3
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 11,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 3
+    }
+  ],
+  "date": {
+    "$date": "2024-02-12T17:02:55.000Z"
+  },
+  "__v": 0
 }]
