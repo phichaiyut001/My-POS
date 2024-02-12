@@ -103,7 +103,11 @@ const Items = () => {
     },
     { title: "ราคา", dataIndex: "price" },
     { title: "จำนวน", dataIndex: "stock" },
-    { title: "หมวดหมู่", dataIndex: "category" },
+    {
+      title: "หมวดหมู่",
+      dataIndex: "category",
+      sorter: (a, b) => a.category.localeCompare(b.category),
+    },
     {
       title: "",
       dataIndex: "_id",

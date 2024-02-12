@@ -79,7 +79,7 @@ const Homepage = () => {
         {itemsData
           .filter((i) => i.category === selectCategory)
           .map((item) => (
-            <Col xs={24} lg={6} md={12} sm={6}>
+            <Col xs={24} lg={5} md={12} sm={6}>
               <ItemList key={item.id} item={item} />
             </Col>
           ))}

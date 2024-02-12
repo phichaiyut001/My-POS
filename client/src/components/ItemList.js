@@ -61,8 +61,8 @@ const ItemList = ({ item }) => {
           />
         }
       >
-        <Meta title={item.name} />
-        <h1 style={{ fontSize: 16 }}>{item.stock} ชิ้น</h1>
+        <Meta style={{ fontSize: 24 }} title={item.name} />
+        <h1 style={{ fontSize: 16, textAlign: "right" }}>{item.stock} ชิ้น</h1>
         <h2 style={{ fontSize: 30 }}>{item.price.toLocaleString()} ฿</h2>
         <div className="item-button">
           <Button
