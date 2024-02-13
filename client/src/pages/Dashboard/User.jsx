@@ -151,7 +151,7 @@ const User = () => {
     <LayoutAdmin>
       <main className="main-container">
         <div className="main-title">
-          <h1>สมาชิคผู้ใช้งาน</h1>
+          <h1>สมาชิกผู้ใช้งาน</h1>
           <Button type="primary" onClick={() => setPopupModal(true)}>
             เพิ่มผู้ใช้งาน
           </Button>
@@ -160,7 +160,7 @@ const User = () => {
 
         {popupModal && (
           <Modal
-            title={`${editUsers !== null ? "Edit User " : "Add New User"}`}
+            title={`${editUsers !== null ? "แก้ไขข้อมูลผู้ใช้งาน " : "เพิ่มผู้ใช้งาน"}`}
             open={popupModal}
             onCancel={() => {
               setEditUsers(null);
@@ -178,21 +178,21 @@ const User = () => {
             >
               <Form.Item
                 name="name"
-                label="Name"
+                label="ชื่อ"
                 rules={[{ required: true, message: "กรุณากรอก ชื่อ" }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 name="UserId"
-                label="User ID"
+                label="ไอดี"
                 rules={[{ required: true, message: "กรุณากรอก UserId" }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 name="password"
-                label="Password"
+                label="รหัสผ่าน"
                 rules={[
                   { required: !editUsers, message: "กรุณากรอก รหัสผ่าน" },
                 ]}
@@ -209,7 +209,7 @@ const User = () => {
               </Form.Item>
               <Form.Item
                 name="roles"
-                label="Roles"
+                label="ตำแหน่ง"
                 rules={[{ required: true, message: "กรุณาเลือกประเภท สินค้า" }]}
               >
                 <Select>
