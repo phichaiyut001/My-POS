@@ -76,10 +76,14 @@ const Login = () => {
               <Input type="password" />
             </Form.Item>
             <div className="d-flex justify-content-between">
+              <p></p>
+
+              {/* A JSX comment 
               <p>
                 Not a user Please
                 <Link to="/register"> Register Here !</Link>
               </p>
+              */}
               <Button type="primary" htmlType="submit">
                 Login
               </Button>
