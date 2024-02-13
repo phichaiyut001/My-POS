@@ -151,9 +151,9 @@ const User = () => {
     <LayoutAdmin>
       <main className="main-container">
         <div className="main-title">
-          <h1>User List</h1>
+          <h1>สมาชิคผู้ใช้งาน</h1>
           <Button type="primary" onClick={() => setPopupModal(true)}>
-            Add User
+            เพิ่มผู้ใช้งาน
           </Button>
         </div>
         <Table columns={columns} dataSource={usersData} bordered />
@@ -218,7 +218,7 @@ const User = () => {
                 </Select>
               </Form.Item>
               <Button type="primary" htmlType="submit">
-                SAVE
+                บันทึก
               </Button>
             </Form>
           </Modal>
