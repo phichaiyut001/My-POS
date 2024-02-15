@@ -24,6 +24,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
+const requireLogin = (req, res, next) => {
+  if (loggedInUsers[req.userId]) {
+    next(); // Allow access to next route
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};
+
 //routes
 app.use("/api/items", require("./routes/itemRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
