@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "65acf83c0d13b76a1ed4c323"
   },
-  "name": "ปลาดุก 2",
+  "name": "ปลาดุก 2 ตัว",
   "price": 100,
   "stock": 37,
   "category": "fish",
@@ -37,7 +37,7 @@
   },
   "name": "ข้าวหอมมะลิ",
   "price": 10,
-  "stock": 82,
+  "stock": 81,
   "category": "rice",
   "image": "image_1705842244534.jpg",
   "__v": 0
@@ -48,7 +48,7 @@
   },
   "name": "ข้าวปลานิลทอด",
   "price": 50,
-  "stock": 22,
+  "stock": 20,
   "category": "rice",
   "image": "image_1705842474095.jpg",
   "__v": 0
@@ -59,7 +59,7 @@
   },
   "name": "ข้าวปลาดุกทอด",
   "price": 60,
-  "stock": 8,
+  "stock": 5,
   "category": "rice",
   "image": "image_1705842518383.jpg",
   "__v": 0

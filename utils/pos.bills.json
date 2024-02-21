@@ -41,7 +41,8 @@
   "date": {
     "$date": "2024-01-27T18:09:51.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -86,7 +87,8 @@
   "date": {
     "$date": "2024-01-28T18:12:36.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -161,7 +163,8 @@
   "date": {
     "$date": "2024-01-27T18:25:21.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -236,7 +239,8 @@
   "date": {
     "$date": "2024-01-27T18:25:33.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -321,7 +325,8 @@
   "date": {
     "$date": "2024-01-28T18:32:13.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -376,7 +381,8 @@
   "date": {
     "$date": "2024-01-21T18:32:58.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -546,7 +552,8 @@
   "date": {
     "$date": "2024-01-24T18:37:43.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -2887,7 +2894,8 @@
   "date": {
     "$date": "2024-02-12T16:24:12.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -2943,7 +2951,8 @@
   "date": {
     "$date": "2024-02-12T16:24:27.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -3009,7 +3018,8 @@
   "date": {
     "$date": "2024-02-12T16:24:56.000Z"
   },
-  "__v": 0
+  "__v": 0,
+  "cancelled": true
 },
 {
   "_id": {
@@ -3054,6 +3064,135 @@
   ],
   "date": {
     "$date": "2024-02-12T17:02:55.000Z"
+  },
+  "__v": 0,
+  "cancelled": true
+},
+{
+  "_id": {
+    "$oid": "65d4ee900a4b5b41c984033a"
+  },
+  "sellname": "Admins",
+  "subTotal": 120,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad164400c49c1dc9f4569b",
+      "name": "ข้าวหอมมะลิ",
+      "price": 10,
+      "stock": 82,
+      "category": "rice",
+      "image": "image_1705842244534.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 22,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    },
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 8,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "cancelled": true,
+  "date": {
+    "$date": "2024-02-20T18:25:20.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d5018e4b53d1945bf2e048"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 50,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad172a00c49c1dc9f456aa",
+      "name": "ข้าวปลานิลทอด",
+      "price": 50,
+      "stock": 21,
+      "category": "rice",
+      "image": "image_1705842474095.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "cancelled": false,
+  "date": {
+    "$date": "2024-02-20T19:46:22.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d50b80a02638b8778bcfae"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 60,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 7,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "cancelled": false,
+  "date": {
+    "$date": "2024-02-20T20:28:48.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d50c6740eaf4cb2fc6df5f"
+  },
+  "sellname": "สวิตต์",
+  "subTotal": 60,
+  "change": 0,
+  "changeAmount": 0,
+  "paymentMode": "promptpay",
+  "cartItems": [
+    {
+      "_id": "65ad175600c49c1dc9f456ad",
+      "name": "ข้าวปลาดุกทอด",
+      "price": 60,
+      "stock": 6,
+      "category": "rice",
+      "image": "image_1705842518383.jpg",
+      "__v": 0,
+      "quantity": 1
+    }
+  ],
+  "cancelled": true,
+  "date": {
+    "$date": "2024-02-20T20:32:39.000Z"
   },
   "__v": 0
 }]
