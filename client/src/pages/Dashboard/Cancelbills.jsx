@@ -8,7 +8,7 @@ import "./components/AdminInvoice.css";
 import { useReactToPrint } from "react-to-print";
 import Swal from "sweetalert2";
 
-const Bills = () => {
+const CancelBills = () => {
   const componentRef = useRef();
   const [billsData, setBillsData] = useState([]);
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Bills = () => {
         type: "SHOW_LOADING",
       });
       const { data } = await axios.get("/api/bills/get-bills");
-      const filteredBills = data.filter((bill) => !bill.cancelled); // กรองบิลที่ไม่ถูกยกเลิก
+      const filteredBills = data.filter((bill) => bill.cancelled); // กรองบิลที่ไม่ถูกยกเลิก
       const billsWithIndex = filteredBills.map((bill, index) => ({
         ...bill,
         index: index + 1,
@@ -177,12 +177,12 @@ const Bills = () => {
               setPopupModal(true);
             }}
           />
-          <DeleteOutlined
+          {/* <DeleteOutlined
             style={{ cursor: "pointer" }}
             onClick={() => {
               handleCancel(record);
             }}
-          />
+          /> */}
         </div>
       ),
     },
@@ -201,7 +201,7 @@ const Bills = () => {
     <LayoutAdmin>
       <main className="main-container">
         <div className="d-flex justify-content-between">
-          <h1>รายการใบเสร็จการขาย</h1>
+          <h1>รายการบิลที่ถูกยกเลิก</h1>
         </div>
         <Table columns={columns} dataSource={billsData} bordered />
 
@@ -341,4 +341,4 @@ const Bills = () => {
   );
 };
 
-export default Bills;
+export default CancelBills;

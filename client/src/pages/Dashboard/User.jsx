@@ -160,7 +160,9 @@ const User = () => {
 
         {popupModal && (
           <Modal
-            title={`${editUsers !== null ? "แก้ไขข้อมูลผู้ใช้งาน " : "เพิ่มผู้ใช้งาน"}`}
+            title={`${
+              editUsers !== null ? "แก้ไขข้อมูลผู้ใช้งาน " : "เพิ่มผู้ใช้งาน"
+            }`}
             open={popupModal}
             onCancel={() => {
               setEditUsers(null);
@@ -214,7 +216,7 @@ const User = () => {
               >
                 <Select>
                   <Select.Option value="user">User</Select.Option>
-                  <Select.Option value="admin">Admin</Select.Option>
+                  {/* <Select.Option value="admin">Admin</Select.Option> */}
                 </Select>
               </Form.Item>
               <Button type="primary" htmlType="submit">

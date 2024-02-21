@@ -34,8 +34,20 @@ const deleteBillsController = async (req, res) => {
   }
 };
 
+const cancelbills = async (req, res) => {
+  try {
+    const { billId } = req.body;
+    await billsModel.findByIdAndUpdate(billId, { cancelled: true });
+    res.status(200).send("Bill cancelled successfully");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error cancelling bill");
+  }
+};
+
 module.exports = {
   addBillsController,
   getBillsController,
   deleteBillsController,
+  cancelbills,
 };

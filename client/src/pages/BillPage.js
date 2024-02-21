@@ -64,6 +64,13 @@ const BillPage = () => {
     return date.toLocaleString("en-GB", options); // Use 'en-GB' for the desired date format
   };
 
+  const loggedInUser = JSON.parse(localStorage.getItem("auth"));
+  const currentUser = loggedInUser.name; // หรือชื่อ field ที่เก็บชื่อผู้ใช้ที่ login ใน LocalStorage
+
+  const filteredBills = billsData.filter((bill) => {
+    return bill.sellname === currentUser;
+  });
+
   const columns = [
     {
       title: "No",
@@ -116,7 +123,7 @@ const BillPage = () => {
       <div className="d-flex justify-content-between">
         <h1>รายการใบเสร็จการขาย</h1>
       </div>
-      <Table columns={columns} dataSource={billsData} bordered />
+      <Table columns={columns} dataSource={filteredBills} bordered />
 
       {popupModal && (
         <Modal

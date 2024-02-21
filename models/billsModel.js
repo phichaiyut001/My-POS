@@ -29,6 +29,10 @@ const billSchema = mongoose.Schema(
       default: () =>
         new Date().toLocaleString("en-US", { timeZone: "Asia/Bangkok" }),
     },
+    cancelled: {
+      type: Boolean,
+      default: false, // กำหนดให้มีค่าเริ่มต้นเป็น false
+    },
   },
   { timestamp: true }
 );

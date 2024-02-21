@@ -101,8 +101,10 @@ const Dash = () => {
         type: "SHOW_LOADING",
       });
       const { data } = await axios.get("/api/bills/get-bills");
-      const billsWithIndex = data.map((bill, index) => ({
+      const filteredBills = data.filter((bill) => !bill.cancelled);
+      const billsWithIndex = filteredBills.map((bill, index) => ({
         ...bill,
+        index: index + 1,
       }));
 
       setBillsData(billsWithIndex);
@@ -206,7 +208,7 @@ const Dash = () => {
   }));
 
   const datas = [
-    { paymentMethod: "เงิดสด", amount: paymentModeCounts["cash"] },
+    { paymentMethod: "เงินสด", amount: paymentModeCounts["cash"] },
     { paymentMethod: "โอน", amount: paymentModeCounts["promptpay"] },
   ];
 
@@ -442,11 +444,11 @@ const Dash = () => {
               ),
             },
             {
-              label: "สรุปยอดรายสัปดาห์",
+              label: "สรุปยอด 7 วันล่าสุด",
               key: "2",
               children: (
                 <Card bordered={false}>
-                  <h1>สรุปยอดรายสัปดาห์</h1>
+                  <h1>สรุปยอด 7 วันล่าสุด</h1>
                   <div className="charts">
                     <div className="chart-container">
                       <ResponsiveContainer width="100%" height="100%">

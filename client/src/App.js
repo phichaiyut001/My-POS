@@ -11,6 +11,7 @@ import Dash from "./pages/Dashboard/Dash";
 import Items from "./pages/Dashboard/Items";
 import Bills from "./pages/Dashboard/Bills";
 import User from "./pages/Dashboard/User";
+import Cancelbills from "./pages/Dashboard/Cancelbills";
 function App() {
   return (
     <>
@@ -77,6 +78,14 @@ function App() {
             element={
               <ProtectedRouteAdmin>
                 <User />
+              </ProtectedRouteAdmin>
+            }
+          />
+          <Route
+            path="/CancelBills"
+            element={
+              <ProtectedRouteAdmin>
+                <Cancelbills />
               </ProtectedRouteAdmin>
             }
           />

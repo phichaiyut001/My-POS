@@ -62,6 +62,9 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         <Menu.Item key="/Billsadmin" icon={<BsFillArchiveFill />}>
           <Link to="/Billsadmin">รายการบิล</Link>
         </Menu.Item>
+        <Menu.Item key="/CancelBills" icon={<BsFillArchiveFill />}>
+          <Link to="/CancelBills">รายการบิลที่ยกเลิก</Link>
+        </Menu.Item>
         <Menu.Item key="/userlist" icon={<BsPeopleFill />}>
           <Link to="/userlist">ผู้ใช้งาน</Link>
         </Menu.Item>
